@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The ratings we didn't show — Chandra Ramanujan</title>
+    <meta name="description" content="An experiment found that restaurant ratings only lifted click-through when the rating was good. Why the click-optimal move — hiding bad ratings — was the wrong one.">
+    <!-- Social / Open Graph. Base URL = the single BASE constant; change it in one place to re-point. -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Chandra Ramanujan">
+    <meta property="og:title" content="The ratings we didn't show — Chandra Ramanujan">
+    <meta property="og:description" content="An experiment found that restaurant ratings only lifted click-through when the rating was good. Why the click-optimal move — hiding bad ratings — was the wrong one.">
+    <meta property="og:url" content="https://chandraramanujan.com/the-ratings-we-didnt-show.html">
+    <meta property="og:image" content="https://chandraramanujan.com/images/og/the-ratings-we-didnt-show.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The ratings we didn't show — Chandra Ramanujan">
+    <meta name="twitter:description" content="An experiment found that restaurant ratings only lifted click-through when the rating was good. Why the click-optimal move — hiding bad ratings — was the wrong one.">
+    <meta name="twitter:image" content="https://chandraramanujan.com/images/og/the-ratings-we-didnt-show.png">
+    <link rel="canonical" href="https://chandraramanujan.com/the-ratings-we-didnt-show.html">
+    <link rel="icon" type="image/png" href="images/profile.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Chandra Ramanujan — Essays" href="/rss.xml">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The ratings we didn't show",
+        "name": "The ratings we didn't show",
+        "description": "An experiment found that restaurant ratings only lifted click-through when the rating was good. Why the click-optimal move — hiding bad ratings — was the wrong one.",
+        "url": "https://chandraramanujan.com/the-ratings-we-didnt-show.html",
+        "image": "https://chandraramanujan.com/images/og/the-ratings-we-didnt-show.png",
+        "datePublished": "2026",
+        "inLanguage": "en",
+        "author": {
+            "@type": "Person",
+            "@id": "https://chandraramanujan.com/about.html#person",
+            "name": "Chandra Ramanujan",
+            "url": "https://chandraramanujan.com/about.html"
+        },
+        "publisher": {
+            "@type": "Person",
+            "@id": "https://chandraramanujan.com/about.html#person",
+            "name": "Chandra Ramanujan"
+        },
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Chandra Ramanujan",
+            "url": "https://chandraramanujan.com/"
+        },
+        "articleSection": "Essay"
+    }
+    </script>
+</head>
+<body>
+    <div class="container page">
+        <nav class="nav">
+            <a href="index.html" class="nav__brand">Chandra Ramanujan</a>
+            <div class="nav__links">
+                <a href="work.html">Work</a>
+                <a href="side-projects.html">Side Projects</a>
+                <a href="writing.html" class="is-active">Writing</a>
+                <a href="in-the-news.html">News</a>
+                <a href="about.html">About</a>
+                <a href="https://drive.google.com/file/d/1lJdautAZvmx8DzGwb9-IBwlpT_G-Kq8b/view" target="_blank" rel="noopener">Resume</a>
+            </div>
+        </nav>
+        <main>
+        <article>
+
+        <header class="cs-header">
+            <h1>The ratings we didn't show</h1>
+            <p class="cs-header__meta">Essay · 2026</p>
+        </header>
+
+        <section class="cs-section prose">
+            <p>We ran a multivariate experiment on GoFood banner ads to figure out why nobody clicked the self-serve ones. Self-serve banners were pulling a CTR of 0.05–0.1%. Sales-assisted banners, which were more customizable, sat around 1–2%. That gap was bleeding merchants — they'd spend money on a banner, see no return, and churn. Fewer merchants meant fewer banners meant less relevance, which is a vicious cycle you can watch happen in the numbers.</p>
+
+            <p>Card sorting with a customer panel told us what people actually cared about when they decided to click: promo details first, then ratings and reviews for social proof, then image quality as a stand-in for food quality. So we built six treatments testing combinations of discount details, restaurant rating, and design changes that pushed the promo up the visual hierarchy. Treatments 2 and 5 won. Hypothesis validated — show people the discount clearly, emphasize it in the layout, and they click more.</p>
+
+            <p>Then the data showed us something I hadn't asked for.</p>
+
+            <h2>Rating only helped when the rating was good</h2>
+
+            <p>Adding the restaurant rating to a banner lifted CTR — but only for restaurants that already had a good rating. For the ones with mediocre or bad ratings, showing the number did nothing, or worse. Which, stated plainly, is obvious in hindsight. Of course people click more when they see 4.7 stars and less when they see 3.1. Nobody orders from the banner bragging about being mediocre.</p>
+
+            <p>But sit with what that finding actually hands you as a design lever. The CTR-optimal move is now completely clear: show the rating when it's high, hide it when it's low. You'd get the click-through lift on the good restaurants and stop suppressing clicks on the bad ones. Every metric on the dashboard I was responsible for — CTR, merchant retention, ad revenue — points the same direction. Show good ratings, hide bad ones. It's not even a hard build. It's a conditional.</p>
+
+            <p>And it's the wrong thing to do.</p>
+
+            <h2>What "optimal" was actually optimizing</h2>
+
+            <p>If we hide the rating whenever it's bad, here's what we've built: a system that shows a credibility signal <em>specifically</em> to the users it will mislead. The whole reason ratings lift CTR is that people read them as an honest quality signal — "others vetted this, it's safe to try something new." The moment we only show that signal when it flatters the restaurant, we've turned an honest cue into a sales tactic. The user thinks the absence of a rating is neutral. It isn't. It's now a tell we're deliberately hiding.</p>
+
+            <p>The person who clicks a banner because it <em>doesn't</em> show a bad rating has been worked. They order from a place they'd have skipped if we'd been straight with them, they get a mediocre meal, and the trust that made ratings valuable in the first place erodes a little. Do that at ~30 million MAU scale and you're not running an experiment anymore, you're systematically degrading the one signal users rely on to try new restaurants. CTR goes up this quarter. The thing that made CTR possible goes down over time.</p>
+
+            <p>Gojek's own ads principles — the ones we'd written and hung on the wall — said ads should be <em>honest</em>: clearly communicate the value proposition. Hiding bad ratings fails that on its face. It's the exact behavior the principle exists to stop, dressed up as a performance win.</p>
+
+            <h2>The harder question, and where I left it</h2>
+
+            <p>So we didn't ship conditional-rating. But the honest version of this essay admits the decision wasn't clean, because "don't manipulate the rating display" doesn't answer the real question the experiment raised: what <em>do</em> you show for a restaurant with a genuinely bad rating?</p>
+
+            <p>That merchant is paying for the banner too. If ratings only help the good restaurants, then ratings as a lever only serve half the market, and the low-rated half is exactly the half that most needs a reason to be clicked. Dropping the rating for them isn't dishonest — you're not hiding a number you'd otherwise show, you're just not leading with it — but it does leave you looking for another credibility signal that isn't a lie.</p>
+
+            <p>So that became the actual design problem: what else provides social proof besides a raw rating? We kept iterating and found one that held up — "ordered X times by people near you." It's real, it's verifiable, and it doesn't collapse into a manipulation the second the underlying number is unflattering.</p>
+
+            <h2>What I took from it</h2>
+
+            <p>The finding that looks like a free win is the one to be suspicious of. "Rating only helps when it's good" arrived dressed as an optimization — a clean conditional that lifts every metric I was measured on. It was actually an ethics question wearing an analytics result, and the tell was that the CTR-optimal move required me to hide information from users to get it.</p>
+
+            <p>I've started treating that as a flag. When the highest-performing variant is the one that shows people less, or shows them a signal only when it's convenient, the metric isn't wrong — CTR really would go up — but the metric has stopped measuring what I wanted it to. The right call cost us some CTR on the low-rated merchants. I'll take a slightly worse number over a signal I've quietly taught users they can't trust.</p>
+
+            <p><em>This decision comes from <a href="gojek-banner-ctr.html">the GoFood banner CTR experiment</a>.</em></p>
+        </section>
+
+        
+        </article>
+</main>
+
+        <footer class="footer">
+            &copy; 2026 Chandra Ramanujan
+        </footer>
+    </div>
+</body>
+</html>

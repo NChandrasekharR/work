@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masthead ads: fighting for a seat at the table — Chandra Ramanujan</title>
+    <meta name="description" content="How the Gojek ads team wrote its way into GoFood's redesign and built Masthead — the platform's most successful premium ad format, lifting merchant ROAS from 2x to 4.5x.">
+    <!-- Social / Open Graph. Base URL = the single BASE constant; change it in one place to re-point. -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Chandra Ramanujan">
+    <meta property="og:title" content="Masthead ads: fighting for a seat at the table — Chandra Ramanujan">
+    <meta property="og:description" content="How the Gojek ads team wrote its way into GoFood's redesign and built Masthead — the platform's most successful premium ad format, lifting merchant ROAS from 2x to 4.5x.">
+    <meta property="og:url" content="https://chandraramanujan.com/gojek-masthead-ads.html">
+    <meta property="og:image" content="https://chandraramanujan.com/images/og/gojek-masthead-ads.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Masthead ads: fighting for a seat at the table — Chandra Ramanujan">
+    <meta name="twitter:description" content="How the Gojek ads team wrote its way into GoFood's redesign and built Masthead — the platform's most successful premium ad format, lifting merchant ROAS from 2x to 4.5x.">
+    <meta name="twitter:image" content="https://chandraramanujan.com/images/og/gojek-masthead-ads.png">
+    <link rel="canonical" href="https://chandraramanujan.com/gojek-masthead-ads.html">
+    <link rel="icon" type="image/png" href="images/profile.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Chandra Ramanujan — Essays" href="/rss.xml">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "headline": "Masthead ads: fighting for a seat at the table",
+        "name": "Masthead ads: fighting for a seat at the table",
+        "description": "How the Gojek ads team wrote its way into GoFood's redesign and built Masthead — the platform's most successful premium ad format, lifting merchant ROAS from 2x to 4.5x.",
+        "url": "https://chandraramanujan.com/gojek-masthead-ads.html",
+        "image": "https://chandraramanujan.com/images/og/gojek-masthead-ads.png",
+        "datePublished": "2024",
+        "inLanguage": "en",
+        "author": {
+            "@type": "Person",
+            "@id": "https://chandraramanujan.com/about.html#person",
+            "name": "Chandra Ramanujan",
+            "url": "https://chandraramanujan.com/about.html"
+        },
+        "publisher": {
+            "@type": "Person",
+            "@id": "https://chandraramanujan.com/about.html#person",
+            "name": "Chandra Ramanujan"
+        },
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Chandra Ramanujan",
+            "url": "https://chandraramanujan.com/"
+        },
+        "about": "Product design case study"
+    }
+    </script>
+</head>
+<body>
+    <div class="container page">
+        <nav class="nav">
+            <a href="index.html" class="nav__brand">Chandra Ramanujan</a>
+            <div class="nav__links">
+                <a href="work.html" class="is-active">Work</a>
+                <a href="side-projects.html">Side Projects</a>
+                <a href="writing.html">Writing</a>
+                <a href="in-the-news.html">News</a>
+                <a href="about.html">About</a>
+                <a href="https://drive.google.com/file/d/1lJdautAZvmx8DzGwb9-IBwlpT_G-Kq8b/view" target="_blank" rel="noopener">Resume</a>
+            </div>
+        </nav>
+        <main>
+        <article>
+
+        <header class="cs-header">
+            <h1>Masthead ads: fighting for a seat at the table</h1>
+            <p class="cs-header__subtitle">How we embedded ads into GoFood's redesign and created the platform's most successful ad format</p>
+            <p class="cs-header__meta">Product Designer · 2022–2024 · Gojek Ads Team</p>
+        </header>
+
+        <nav class="cs-toc" aria-label="Contents">
+            <a href="#context">Context</a>
+            <a href="#problem">The problem</a>
+            <a href="#fight">The fight</a>
+            <a href="#alignment">Stakeholder alignment</a>
+            <a href="#solution">The solution</a>
+            <a href="#scalable">Making it scalable</a>
+            <a href="#rollout">Rollout &amp; governance</a>
+            <a href="#impact">Impact</a>
+            <a href="#next">What's next</a>
+            <a href="#learnings">Learnings</a>
+        </nav>
+
+        <section id="context" class="cs-section prose">
+            <p>At Gojek I designed consumer advertising across Southeast Asia's super-app ecosystem, at a scale of ~30 million monthly active users across Indonesia and Vietnam, balancing merchant ROI, user experience, and platform scalability. This is the story of Masthead - the premium ad format we fought to get into GoFood's redesign. It builds on the <a href="gojek-ads-design-system.html">ads design system</a> I owned, and sits alongside a <a href="gojek-banner-ctr.html">banner CTR experiment</a> covered separately.</p>
+        </section>
+
+        <!-- TODO(chandra: $16M meaning pending. The removed duplicate subtitle read "GoFood's $16M redesign" (cost meaning); the pull quote in Impact says "$16 million revenue stream". Pick one meaning and apply to both the header subtitle and the pull quote.) -->
+        <figure class="cs-image">
+            <img src="images/masthead-new-hero.png" alt="Masthead Ads">
+        </figure>
+
+        <section id="problem" class="cs-section prose">
+            <h3>The problem: we weren't invited</h3>
+            <p>In late 2022, GoFood was undergoing a complete redesign. This was a massive initiative - GoFood generated the majority of Gojek's revenue. But here's the problem: <strong>the ads team, responsible for $11.3 million in revenue, wasn't included in the redesign.</strong></p>
+            <p>We were literally going to be an afterthought.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/not-invited.png" alt="Not invited to the redesign">
+        </figure>
+
+        <section class="cs-section prose">
+            <blockquote>
+                <p>"I couldn't let ads become a band-aid on a redesigned product."</p>
+            </blockquote>
+
+            <h4>The existing state was broken</h4>
+            <ul>
+                <li>Banner ads occupied prime real estate but had low engagement</li>
+                <li>Overload of information and busy design compromised readability and perceived value</li>
+                <li>Users didn't consider carousel banners to be useful and often skipped them</li>
+                <li>Too many banners, often considered irrelevant and not personalised, leading to banner blindness</li>
+            </ul>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Banner low engagement.png" alt="Old banner ads showing poor design">
+            <figcaption class="cs-caption">Before: banner blindness and poor engagement</figcaption>
+        </figure>
+
+        <section id="fight" class="cs-section prose">
+            <h3>The fight: writing our way in</h3>
+            <p>So my fellow designer Shreya (my counterpart on merchant tooling) and I wrote a strategic document - <strong>'Principles for embedding APP inside GoFood ads.'</strong> We didn't wait for permission. We wrote it, aligned it with Maji, our design manager, and presented it directly to Julee, the GoFood VP.</p>
+
+            <h4>Three strategic principles</h4>
+
+            <h4>1. Revenue continuity — how do we ensure new ad formats don't lead to negative business outcomes?</h4>
+            <ul>
+                <li><strong>Earlier forecasting</strong> on ad inventories to ensure BAU revenue baseline</li>
+                <li><strong>Go-to-market strategy</strong> with transitionary phases (start selling new format before launch)</li>
+                <li><strong>Bouncing back from failures</strong> - multiple rollout scenarios prepared</li>
+            </ul>
+
+            <h4>2. Systemic approach — ads exist as part of a larger ecosystem. How do we manage that experience?</h4>
+            <ul>
+                <li><strong>Cater for real demand</strong> - More complex ad formats require deeper investment from advertisers</li>
+                <li><strong>Ads are not limited to GoFood</strong> - Unifying principles across Gojek app (Transport, Logistics, etc.)</li>
+                <li><strong>Accommodate merchants & internal Gojek needs</strong> - Ensure consistency across ecosystem</li>
+            </ul>
+
+            <h4>3. Scope of expansion — balance building new vs optimising existing formats</h4>
+            <ul>
+                <li><strong>Accommodate existing design goals</strong> while being open to rapid experimentation</li>
+                <li><strong>Robust governance</strong> to dictate which content goes where, how, and when</li>
+                <li><strong>Maintain integrity</strong> of overall GoFood consumer experience</li>
+            </ul>
+
+            <h4>The document worked.</h4>
+            <p>We got embedded in the redesign with clear responsibilities through the DARCI model. We secured <strong>70% capacity allocation</strong> for our designers. This wasn't given to us - we fought for it by showing the revenue risk.</p>
+            <blockquote>
+                <!-- TODO(chandra: $16M meaning pending — must agree with header subtitle once decided) -->
+                <p>"Because we got involved early, ads weren't retrofitted - they were native to the new experience. We protected the $16 million revenue stream and set a precedent that ads must be considered in every major product decision."</p>
+            </blockquote>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Strategy doc.png" alt="Strategic document and principles">
+            <figcaption class="cs-caption">The strategic document that secured our seat at the table</figcaption>
+        </figure>
+
+        <section id="alignment" class="cs-section prose">
+            <h3>Managing the chaos: stakeholder alignment</h3>
+            <p>Getting embedded was just the start. I had to align with business about relevancy metrics, with designers about which touchpoints we'd own. Each conversation required different framing - revenue for business, user experience for product, technical feasibility for engineering.</p>
+
+            <h4>Ads stakeholders</h4>
+            <ul>
+                <li>Ads PMs & Biz teams</li>
+                <li>Ad Sales</li>
+                <li>My design manager</li>
+                <li>Senior designers, UXW, UXR</li>
+            </ul>
+
+            <h4>GoFood stakeholders</h4>
+            <ul>
+                <li>Food VP Business & Product</li>
+                <li>Food PMs & EMs</li>
+                <li>VP Design</li>
+                <li>Design leads & managers, Design PgM</li>
+            </ul>
+
+            <h4>Aligning goals across teams</h4>
+
+            <h4>GoFood's goal</h4>
+            <p>Show users food content as early as possible to trigger cravings leading to improved engagement and transactions. Make users transact via non-search flows when there is a clear intent.</p>
+
+            <h4>Ads team's goal</h4>
+            <p>Improved clarity and readability of ad assets to aid in user decision making on purchase. Increase ad revenue and ROAS for merchant and brand partners.</p>
+
+            <h3 id="solution">The solution: Masthead ads</h3>
+            <p>We designed a premium ad format that would solve the banner blindness problem while respecting user experience.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Masthead breakdown.png" alt="Masthead breakdown">
+        </figure>
+
+        <section class="cs-section prose">
+            <h4>Design principles for Masthead</h4>
+
+            <h4>Clear & Concise</h4>
+            <p>Keep text minimal and impactful</p>
+
+            <h4>Rich visuals</h4>
+            <p>High-quality images, colors, fonts + engaging media formats</p>
+
+            <h4>Relevant & Targeted</h4>
+            <p>Show banners specific to target audience segments</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/masthead-before-after.png" alt="Before and after comparison">
+            <figcaption class="cs-caption">Before and after: from banner blindness to premium ad experience</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <h4>Early prototypes to make the case</h4>
+            <p>I quickly mocked up prototypes to share with leaders to make the case for a new ad inventory. The goal was to show, not tell. One thread I explored here was surfacing "ad" as part of the nav metadata — labelling content by type right in the navigation. We couldn't build it in the end, blocked by design-system tech feasibility, but the question stuck with me: why can't nav show what type of content it is?</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/masthead-prototype-flow.png" alt="Early prototypes">
+            <figcaption class="cs-caption">Quick prototypes to get leadership buy-in.</figcaption>
+        </figure>
+
+        <section id="scalable" class="cs-section prose">
+            <h3>The hard part: making it scalable</h3>
+            <p>As I iterated on UI, challenges emerged:</p>
+            <ul>
+                <li>Merchants had near-infinite requirements</li>
+                <li>Guidelines had to work in both Indonesia & Vietnam</li>
+                <li>Had to preserve the "wow factor" while being systematic</li>
+            </ul>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Masthead UI iterations.png" alt="Masthead UI iterations">
+            <figcaption class="cs-caption">Iterations started to get messy, as I realised we needed a system to capture all merchant use cases</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <h4>Scoping merchant & brand use cases</h4>
+            <p>Worked with PM, biz and ad sales to consolidate Merchant / Brand jobs-to-be-done and define:</p>
+            <ul>
+                <li>Slot structure for different use cases</li>
+                <li>CPM model that worked for various advertiser sizes</li>
+                <li>Use case taxonomy (brand awareness, promotions, new launches, etc.)</li>
+            </ul>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Masthead Merchant Use Cases.png" alt="Merchant use cases">
+            <figcaption class="cs-caption">Mapping merchant and brand jobs-to-be-done</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <h4>Creating visual & copy guidelines</h4>
+            <p>Worked with Creative Design + UXW on copy and design rules that could:</p>
+            <ul>
+                <li>Encompass all merchant/brand JTBDs</li>
+                <li>Stay cohesive with Gojek branding</li>
+                <li>Be internationalisable (Indonesia & Vietnam)</li>
+                <li>Maintain quality standards at scale</li>
+            </ul>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Guidelines iterations.png" alt="Guidelines iterations">
+            <figcaption class="cs-caption">Iterating on guidelines that balance flexibility and quality</figcaption>
+        </figure>
+
+        <section id="rollout" class="cs-section prose">
+            <h3>Rollout & governance</h3>
+            <p>Rollout meant debugging, working with devs and biz, handling device-specific edge cases. We debugged on test devices and alpha builds to make sure the ad rendered correctly across screen sizes. The real challenge was Android: dozens of manufacturers, each with their own specs for notches, cutouts, and safe areas, and we needed a consistent view experience across all of them. But the real work started after launch.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/debugging.png" alt="Governance workflow">
+            <figcaption class="cs-caption">Debugging the ad across test devices and alpha builds.</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <h4>Masthead ad governance</h4>
+            <p>Merchants would come back to us with feedback and requests. I had to create a workflow to implement changes in the ad sales & design process:</p>
+            <ul>
+                <li>Process to take in feedback from merchants and ad sales</li>
+                <li>Review mechanism with design, product, and business</li>
+                <li>Update and version Masthead guidelines</li>
+                <li>Communicate changes back to all stakeholders</li>
+            </ul>
+            <p>Once it was running, we started getting actionable merchant feedback almost immediately, which helped us prioritise and act on issues instead of guessing at them.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Governance Workflow.png" alt="Governance workflow">
+            <figcaption class="cs-caption">The feedback and governance workflow for continuous improvement.</figcaption>
+        </figure>
+
+        <section id="impact" class="cs-section prose">
+            <h3>Impact in GoFood</h3>
+
+            <ul class="metrics">
+                <li><span class="metrics__num">21%</span> — Increase in banner CTR</li>
+                <li><span class="metrics__num">2x</span> — Increase in CTB rate (click to buy)</li>
+                <li><span class="metrics__num">3mn</span> — USD Incremental revenue</li>
+                <li><span class="metrics__num">2x → 4.5x</span> — ROAS for merchants driven by improved creative, messaging and readability</li>
+            </ul>
+
+            <p><strong>Most successful ad inventory</strong> - Masthead became the most successful ad format and was rolled out across the entire Gojek consumer app, not just GoFood.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Masthead-across-app.png" alt="Masthead across app">
+            <figcaption class="cs-caption">Masthead ads rolled out across Gojek app</figcaption>
+        </figure>
+
+        <section id="next" class="cs-section prose">
+            <h3>What I wanted to do next</h3>
+            <p>Success doesn't mean we were done. I had a roadmap of improvements:</p>
+
+            <h4>UI only goes so far</h4>
+            <p>Most gains came from personalisation and targeting, not just visual design. I explored how Masthead could integrate into offline and social media channels to create a cohesive brand experience.</p>
+
+            <h4>Technical constraints we hit</h4>
+            <ul>
+                <li><strong>Limited to 3rd party PNGs</strong> due to tech maturity constraints - harder to customise and A/B test variations</li>
+                <li><strong>Image only</strong> - no support for voiceover or video</li>
+                <li><strong>Accessibility gaps</strong> - Carousel is an inaccessible format. Wanted to add accessibility in ads creation tools and at design system level</li>
+            </ul>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Masthead-future-improvements.png" alt="Future improvements">
+            <figcaption class="cs-caption">Roadmap for future improvements</figcaption>
+        </figure>
+
+        <section id="learnings" class="cs-section prose">
+            <h3>What did I learn?</h3>
+            <ul>
+                <li><strong>How to present to big decision makers</strong> and get people on board with a vision</li>
+                <li><strong>When to step up</strong> - sometimes you don't wait for permission, you make the case</li>
+                <li><strong>When to bring others along</strong> - collaboration across teams is what makes systemic change stick</li>
+                <li><strong>Strategic thinking matters</strong> - The document we wrote wasn't just design work, it was business strategy</li>
+            </ul>
+        </section>
+
+        </article>
+<nav class="cs-nav">
+            <a href="work.html">← Back to work</a>
+            <a href="gojek-banner-ctr.html">Next project →</a>
+        </nav>
+
+        </main>
+
+        <footer class="footer">
+            &copy; 2026 Chandra Ramanujan
+        </footer>
+    </div>
+    <script src="lightbox.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Gojek's ads design system — Chandra Ramanujan</title>
+    <meta name="description" content="Creating a unified component library and visual principles for all third-party advertising on Gojek, reducing new ad-format launch time from weeks to days across a ~30M MAU super-app.">
+    <!-- Social / Open Graph. Base URL = the single BASE constant; change it in one place to re-point. -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Chandra Ramanujan">
+    <meta property="og:title" content="Building Gojek's ads design system — Chandra Ramanujan">
+    <meta property="og:description" content="Creating a unified component library and visual principles for all third-party advertising on Gojek, reducing new ad-format launch time from weeks to days across a ~30M MAU super-app.">
+    <meta property="og:url" content="https://chandraramanujan.com/gojek-ads-design-system.html">
+    <meta property="og:image" content="https://chandraramanujan.com/images/og/gojek-ads-design-system.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Building Gojek's ads design system — Chandra Ramanujan">
+    <meta name="twitter:description" content="Creating a unified component library and visual principles for all third-party advertising on Gojek, reducing new ad-format launch time from weeks to days across a ~30M MAU super-app.">
+    <meta name="twitter:image" content="https://chandraramanujan.com/images/og/gojek-ads-design-system.png">
+    <link rel="canonical" href="https://chandraramanujan.com/gojek-ads-design-system.html">
+    <link rel="icon" type="image/png" href="images/profile.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Chandra Ramanujan — Essays" href="/rss.xml">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "headline": "Building Gojek's ads design system",
+        "name": "Building Gojek's ads design system",
+        "description": "Creating a unified component library and visual principles for all third-party advertising on Gojek, reducing new ad-format launch time from weeks to days across a ~30M MAU super-app.",
+        "url": "https://chandraramanujan.com/gojek-ads-design-system.html",
+        "image": "https://chandraramanujan.com/images/og/gojek-ads-design-system.png",
+        "datePublished": "2024",
+        "inLanguage": "en",
+        "author": {
+            "@type": "Person",
+            "@id": "https://chandraramanujan.com/about.html#person",
+            "name": "Chandra Ramanujan",
+            "url": "https://chandraramanujan.com/about.html"
+        },
+        "publisher": {
+            "@type": "Person",
+            "@id": "https://chandraramanujan.com/about.html#person",
+            "name": "Chandra Ramanujan"
+        },
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Chandra Ramanujan",
+            "url": "https://chandraramanujan.com/"
+        },
+        "about": "Product design case study"
+    }
+    </script>
+</head>
+<body>
+    <div class="container page">
+        <nav class="nav">
+            <a href="index.html" class="nav__brand">Chandra Ramanujan</a>
+            <div class="nav__links">
+                <a href="work.html" class="is-active">Work</a>
+                <a href="side-projects.html">Side Projects</a>
+                <a href="writing.html">Writing</a>
+                <a href="in-the-news.html">News</a>
+                <a href="about.html">About</a>
+                <a href="https://drive.google.com/file/d/1lJdautAZvmx8DzGwb9-IBwlpT_G-Kq8b/view" target="_blank" rel="noopener">Resume</a>
+            </div>
+        </nav>
+        <main>
+        <article>
+
+        <header class="cs-header">
+            <h1>Building Gojek's ads design system</h1>
+            <p class="cs-header__subtitle">A unified component library and visual principles for all third-party advertising on Gojek, reducing launch time from weeks to days</p>
+            <p class="cs-header__meta">Product Designer · 2021–2024 · Gojek Ads Team</p>
+        </header>
+
+        <nav class="cs-toc" aria-label="Contents">
+            <a href="#overview">Overview</a>
+            <a href="#problem">The problem</a>
+            <a href="#vision">Our vision for ads</a>
+            <a href="#hard">What made this hard</a>
+            <a href="#role">My role</a>
+            <a href="#process">Process</a>
+            <a href="#impact">Impact &amp; outcomes</a>
+        </nav>
+
+        <figure class="cs-image">
+            <img src="images/hero-1200x1600.png" alt="Gojek ads design system">
+        </figure>
+
+        <section id="overview" class="cs-section prose">
+            <h2>Overview</h2>
+            <p>At Gojek, I was responsible for designing consumer advertising experiences across Southeast Asia's super-app ecosystem, working at a scale of ~30 million monthly active users across Indonesia and Vietnam. My work drove $5M USD in additional revenue while maintaining user experience at the forefront. The $5M is the cumulative ads-team figure; the individual results on the Masthead and banner CTR pages roll up into it.</p>
+            <p>I collaborated with cross-functional teams spanning business, product, engineering, ad sales, and creative - often across India, Indonesia, Singapore, and Vietnam. My role required balancing merchant ROI, user experience, platform scalability, and rapid experimentation.</p>
+            <p>My work at Gojek spanned three major projects, each covered as its own case study: this ads design system, the <a href="gojek-masthead-ads.html">Masthead premium ad format</a>, and a <a href="gojek-banner-ctr.html">banner CTR experiment</a> that drove a 60% uplift in click-through rates. This page covers the design system - the foundation the other two were built on.</p>
+        </section>
+
+        <section id="ads-system" class="cs-section prose">
+            <h2>Building a scalable ads system</h2>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Ads-rollout.png" alt="Ads rollout">
+        </figure>
+
+        <section class="cs-section prose">
+            <p>I pulled together business, IxD, copywriters, publishers, and creative designers to build one component library and one set of visual principles for all 3rd party advertising on Gojek. Nobody owned this before me, so it was a lot of herding.</p>
+
+            <h3 id="problem">The problem: long timeline to introduce ads</h3>
+            <p>When I joined, setting up ad inventory was slow, chaotic and ad hoc. We'd been running ads for a few months, but every Gojek product had its own UI components and its own content guidelines. Launching anything new meant reinventing it each time.</p>
+
+            <ul class="metrics">
+                <li><span class="metrics__num">1 week</span> — Sales / acquisition</li>
+                <li><span class="metrics__num">2 weeks</span> — Engineering effort</li>
+                <li><span class="metrics__num">1 week</span> — Data / reporting</li>
+            </ul>
+
+            <p><strong>Questions with no clear answers:</strong></p>
+            <ul>
+                <li>What component to use for the ad?</li>
+                <li>What content / copy is permissible?</li>
+                <li>What should the behaviour of the ad be?</li>
+                <li>How does the merchant / brand create the ad from scratch?</li>
+            </ul>
+
+            <h3 id="vision">Our vision for ads on Gojek</h3>
+            <p>From a UX point of view, I wanted ads to become a core part of the Gojek user experience, not a tax on it - and a driver of business both on and off Gojek. The baseline was simple: ads should look and behave the same way everywhere in Gojek. But consistency alone wasn't the point. In an internal design workshop, we aligned on 3 principles that became the core of ads at Gojek and are still followed today.</p>
+
+            <h4>Effective</h4>
+            <p>Ads on Gojek should add value to a user's journey and job to be done while using a Gojek service</p>
+
+            <h4>Honest</h4>
+            <p>Ads on Gojek should clearly communicate the value proposition and additional actions needed to access it</p>
+
+            <h4>Delightful</h4>
+            <p>Ads on Gojek should contribute to the customer's enjoyment & satisfaction of using Gojek's services</p>
+
+            <blockquote>
+                <p>Ads on Gojek should contain content the user is not aware of but would be delighted to explore, and be relevant to their needs either via superior targeting, or appropriate placement in the user journey.</p>
+            </blockquote>
+
+            <p><strong>My job was to turn that vision into a system for consumer ads.</strong></p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/ad-system-themes.png" alt="Unified vision for ads on Gojek">
+            <figcaption class="cs-caption">The vision: ads as a core part of the Gojek experience</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <h3 id="hard">What made this hard</h3>
+
+            <h4>Cross-cultural stakeholders</h4>
+            <p>My teams were spread across India, Indonesia, Singapore, and Vietnam. Time zones and context gaps were a daily tax.</p>
+
+            <h4>Complexity</h4>
+            <p>Gojek is a huge product - ride hailing, food delivery, payments and much more. Whatever worked with one team usually fell apart with the next, so I couldn't just copy-paste an approach.</p>
+
+            <h4>Nuance</h4>
+            <p>Every ads surface had its own user context and its own merchant ROI expectations. A component that made sense in food didn't automatically make sense in transport.</p>
+
+            <h4>Scalability</h4>
+            <p>I was designing at country scale - roughly ~30 million MAUs across Indonesia and Vietnam. Small mistakes got very large very fast.</p>
+
+            <h3 id="role">My role as product designer</h3>
+            <p>My job was to keep everyone pointed at the same problem statement and get the thing shipped. In practice that meant three things:</p>
+
+            <h4>Stakeholder management</h4>
+            <p>I wrote the briefs for the design specialists on the project and managed feedback coming in from business, product, and engineering. A lot of the work was translating between them.</p>
+
+            <h4>Ensuring quality</h4>
+            <p>I made sure whatever we shipped held up to Gojek's standards - accessibility, interface quality, the details that get quietly dropped when everyone's in a hurry.</p>
+
+            <h4>Owning the source of truth</h4>
+            <p>Once the system existed, I maintained the documentation, used it in my own projects, and kept pushing other designers to actually adopt it. A system nobody uses is just a nice Figma file.</p>
+
+            <h3 id="process">Process</h3>
+
+            <h4>First step: audited the Gojek app</h4>
+            <p>I went through every existing ad placement across the Gojek ecosystem first, so I actually knew what I was systematising instead of guessing at it. That audit set the outline for the whole system.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/gojek-app-audit.png" alt="Gojek app audit">
+            <figcaption class="cs-caption">Comprehensive audit of existing ad placements</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <h4>Second step: built the UI component library</h4>
+            <p>I wrote the brief for the IxD designers and iterated on the UI with them until we had reusable, modular components rather than one-offs.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/ad-UI-iterations.png" alt="UI component library">
+            <figcaption class="cs-caption">UI iterations - we had to think about a lot of things like controls, ad tags etc.</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <h4>Third step: Content guidelines & competitive research</h4>
+            <p>I worked with creative designers on content guidelines and use cases, dug into what competitors were doing, and sat with UX writers to nail down copy principles.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/ad-content-guidelines.png" alt="Content guidelines">
+            <figcaption class="cs-caption">Content guidelines and use cases for ads</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <h4>Final step: Rollout & documentation</h4>
+            <p>I rolled the system out inside the consumer app and kept the source of truth and documentation current for devs and other designers.</p>
+            <p>I also prototyped and tested feedback and reporting mechanisms in the app, so users had a bit more control over the ads they were seeing.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/ad-UI-library.png" alt="UI component library">
+            <figcaption class="cs-caption">A peek at the final modular UI components for consistent ad experiences that I maintained as a library for me and other designers to use</figcaption>
+        </figure>
+
+        <section id="impact" class="cs-section prose">
+            <h3>Impact & Outcomes</h3>
+
+            <ul class="metrics">
+                <li><span class="metrics__num">Weeks → Days</span> — Reduced launch time</li>
+                <li><span class="metrics__num">~3 days</span> — To onboard new ad format</li>
+                <li><span class="metrics__num">Higher ROAS</span> — For merchants & brands</li>
+            </ul>
+
+            <h4>Who it actually helped</h4>
+
+            <h4>Users</h4>
+            <p>Got a consistent, easy-to-understand ads experience across Gojek instead of a different-looking ad in every corner of the app.</p>
+
+            <h4>Engineering and product</h4>
+            <p>Could onboard a new ad format with minimal design and dev effort - about 3 days. They no longer needed a dedicated product designer for every new ad inventory, which was the whole point.</p>
+
+            <h4>Merchants</h4>
+            <p>Got defined templates and behaviours, so creating and running an ad stopped being a guessing game.</p>
+
+            <h4>Gojek</h4>
+            <p>Reusable templates and copy guidelines meant campaigns went live faster, and we could scale ads onto new surfaces without starting from zero each time.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/ads-system-deployed.png" alt="Ads system deployed across Gojek">
+            <figcaption class="cs-caption">The ads system in use across Gojek's product ecosystem</figcaption>
+        </figure>
+
+        </article>
+<nav class="cs-nav">
+            <a href="work.html">← Back to work</a>
+            <a href="gojek-masthead-ads.html">Next project →</a>
+        </nav>
+
+        </main>
+
+        <footer class="footer">
+            &copy; 2026 Chandra Ramanujan
+        </footer>
+    </div>
+    <script src="lightbox.js" defer></script>
+</body>
+</html>

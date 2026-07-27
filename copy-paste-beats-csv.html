@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy-paste beats CSV — Chandra Ramanujan</title>
+    <meta name="description" content="CSV upload was the obvious input method for a keyword block list. Why we cut it and made admins paste or type by hand instead.">
+    <!-- Social / Open Graph. Base URL = the single BASE constant; change it in one place to re-point. -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Chandra Ramanujan">
+    <meta property="og:title" content="Copy-paste beats CSV — Chandra Ramanujan">
+    <meta property="og:description" content="CSV upload was the obvious input method for a keyword block list. Why we cut it and made admins paste or type by hand instead.">
+    <meta property="og:url" content="https://chandraramanujan.com/copy-paste-beats-csv.html">
+    <meta property="og:image" content="https://chandraramanujan.com/images/og/copy-paste-beats-csv.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Copy-paste beats CSV — Chandra Ramanujan">
+    <meta name="twitter:description" content="CSV upload was the obvious input method for a keyword block list. Why we cut it and made admins paste or type by hand instead.">
+    <meta name="twitter:image" content="https://chandraramanujan.com/images/og/copy-paste-beats-csv.png">
+    <link rel="canonical" href="https://chandraramanujan.com/copy-paste-beats-csv.html">
+    <link rel="icon" type="image/png" href="images/profile.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Chandra Ramanujan — Essays" href="/rss.xml">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Copy-paste beats CSV",
+        "name": "Copy-paste beats CSV",
+        "description": "CSV upload was the obvious input method for a keyword block list. Why we cut it and made admins paste or type by hand instead.",
+        "url": "https://chandraramanujan.com/copy-paste-beats-csv.html",
+        "image": "https://chandraramanujan.com/images/og/copy-paste-beats-csv.png",
+        "datePublished": "2026",
+        "inLanguage": "en",
+        "author": {
+            "@type": "Person",
+            "@id": "https://chandraramanujan.com/about.html#person",
+            "name": "Chandra Ramanujan",
+            "url": "https://chandraramanujan.com/about.html"
+        },
+        "publisher": {
+            "@type": "Person",
+            "@id": "https://chandraramanujan.com/about.html#person",
+            "name": "Chandra Ramanujan"
+        },
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Chandra Ramanujan",
+            "url": "https://chandraramanujan.com/"
+        },
+        "articleSection": "Essay"
+    }
+    </script>
+</head>
+<body>
+    <div class="container page">
+        <nav class="nav">
+            <a href="index.html" class="nav__brand">Chandra Ramanujan</a>
+            <div class="nav__links">
+                <a href="work.html">Work</a>
+                <a href="side-projects.html">Side Projects</a>
+                <a href="writing.html" class="is-active">Writing</a>
+                <a href="in-the-news.html">News</a>
+                <a href="about.html">About</a>
+                <a href="https://drive.google.com/file/d/1lJdautAZvmx8DzGwb9-IBwlpT_G-Kq8b/view" target="_blank" rel="noopener">Resume</a>
+            </div>
+        </nav>
+        <main>
+        <article>
+
+        <header class="cs-header">
+            <h1>Copy-paste beats CSV</h1>
+            <p class="cs-header__meta">Essay · 2026</p>
+        </header>
+
+        <section class="cs-section prose">
+            <p>When you build a tool where admins enter a list of blocked keywords, the obvious input method is CSV upload. Admins live in spreadsheets. They have their block lists in Excel already. Let them upload the file, done. That was my first instinct, and it was wrong, and figuring out why it was wrong is one of the decisions I'm most sure about from the whole moderation project.</p>
+
+            <h2>The obvious feature</h2>
+
+            <p>Context first. This is the content moderation tool Wayground built so conservative districts would stop blocking us at the firewall. Admins block content by keyword; teachers can still see what's hidden and request access. It replaced the "kill the whole library" solution Sales wanted, and the entire value of it rests on being <em>granular</em> — blocking a little, preserving most of the library.</p>
+
+            <p>For the keyword-entry piece, CSV upload is the clean answer on a whiteboard. It's fast, it's familiar, it matches how admins already store their lists, it scales to any size. If you were grading the feature on input ergonomics alone, CSV wins every category. So we scoped it, and then we went and talked to admins before building it.</p>
+
+            <p>They told us the thing that killed it: they had 1,000+ keywords ready to paste in. Not fifty. Not a curated list of genuinely sensitive terms. Over a thousand, and they'd upload all of them without a second thought if we gave them a file picker.</p>
+
+            <h2>The number was the problem, not the ergonomics</h2>
+
+            <p>Here's the part that flipped my thinking. The problem was never "how do admins get their keywords in." The problem was "how many keywords should exist at all," and CSV upload quietly answered that question the worst possible way.</p>
+
+            <p>Every blocked keyword is a term the system has to account for in search and recommendations. Block enough of them and you've degraded search quality — for everyone, teachers included — because now the engine is routing around a giant exclusion list. A thousand-keyword block list doesn't just hide a thousand terms. It warps discovery across the whole product. And the admin who pasted that list has no idea they did it, because from their seat they just uploaded a file and moved on. The cost lands on teachers searching for resources, who get worse results for reasons no one can see.</p>
+
+            <p>CSV upload is <em>frictionless at exactly the wrong scale.</em> It makes dumping 1,000 keywords precisely as easy as entering 10. It removes every natural check on volume. The ergonomic win and the product risk are the same property — how effortlessly it scales — pointing in opposite directions.</p>
+
+            <h2>So we made them do it by hand</h2>
+
+            <p>We cut CSV upload. Admins copy-paste from their spreadsheet or type keywords in manually. It's more annoying. That's the feature.</p>
+
+            <p>Manual entry and copy-paste put a soft ceiling on volume. Not a hard cap — I didn't want to invent an arbitrary limit and defend "why 200 and not 250." I wanted the <em>effort</em> to scale with the volume, so that blocking 1,000 keywords felt like the thousand-keyword decision it actually is, while blocking the 20 you genuinely care about stayed easy. Friction as a governor: cheap when you're using the tool as intended, increasingly costly as you approach the behavior that quietly wrecks search.</p>
+
+            <p>The admins who need this feature almost never need a thousand keywords. They need the handful of terms driving their district's firewall block. The 1,000-keyword admin was pattern-matching — "I have a big spreadsheet, I'll dump the big spreadsheet" — not actually reasoning about what each keyword costs. Making them paste or type is enough friction to interrupt the dump and turn it back into a series of choices. The friction here was the manual entry itself; we didn't lean on an explicit counter or warning, just the plain fact that a thousand terms take a thousand terms' worth of effort to put in.</p>
+
+            <h2>Capping the admin to protect the teacher</h2>
+
+            <p>The through-line for the whole moderation tool was: give admins real control without destroying teacher value. It's easy to think of that as a content fight — which resources stay, which get hidden. But it also showed up as an infrastructure decision nobody would put in a case study headline. Search quality <em>is</em> teacher value. A teacher who can't find good resources has lost the library just as surely as if you'd blocked it.</p>
+
+            <p>So capping admin power here wasn't about distrusting admins. It was about protecting a shared resource — search and recommendations — from being casually degraded by one well-meaning person with a big spreadsheet and a frictionless upload button. The admin optimizes for their district's political cover. The search index is a commons that every teacher draws on. CSV upload let one party quietly tax the other. Copy-paste keeps the cost of over-blocking visible and personal to the person choosing to over-block.</p>
+
+            <h2>What I took from it</h2>
+
+            <p>The best input method on paper was the worst one for the product, and the reason is a principle I keep coming back to: when a feature's convenience scales faster than its consequences, the convenience is the bug. CSV made 1,000 keywords as easy as 10 while making 1,000 keywords far more damaging than 10. That mismatch is the tell.</p>
+
+            <p>Sometimes the pro-user move is to <em>not</em> build the smooth thing — to leave in enough friction that the expensive action feels expensive. Copy-paste beats CSV not because it's better UX in isolation. It's worse UX in isolation. It's better <em>product</em>, because it puts a governor on the one behavior that would have quietly degraded the experience for the people the whole tool was supposed to protect.</p>
+
+            <p><em>This decision comes from <a href="wayground-content-moderation.html">the Wayground content moderation work</a>.</em></p>
+        </section>
+
+        
+        </article>
+</main>
+
+        <footer class="footer">
+            &copy; 2026 Chandra Ramanujan
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+# Chandra Ramanujan
+
+> Product designer. Lead designer at Sitetracker; previously Wayground and Gojek.
+> I think design decisions should be proven, not debated — so I prototype in code,
+> run experiments, and let the data settle the argument. This site is hand-built
+> static HTML/CSS, no JavaScript, no tracking. Case studies are ordered by strength,
+> not chronology: a portfolio is an argument. Everything here traces to a shipped
+> thing, a real number, or my own words — nothing invented.
+
+## Start here
+
+- [Home](https://chandraramanujan.com/index.html): The thesis and the work index.
+- [About](https://chandraramanujan.com/about.html): The route from copywriting to research to product design, and how I work — writing as an operating system, publish at 80%, proof of work over claims.
+
+## Work (case studies, strongest first)
+
+- [Content moderation under political pressure](https://chandraramanujan.com/wayground-content-moderation.html): Sales wanted a kill switch for the content library under 'Parents Bill of Rights' laws; I fought for a granular moderation tool instead. Closed 3 red-state deals worth $400K. Wayground, 2025.
+- [Do we ever need modes?](https://chandraramanujan.com/wayground-game-settings.html): Rebuilding the IA of Wayground's most-trafficked surface — twice. Shipped, watched it regress, diagnosed why, shipped again. The bug wasn't the IA; it was teacher confidence. Wayground, 2025.
+- [Masthead ads: fighting for a seat at the table](https://chandraramanujan.com/gojek-masthead-ads.html): Writing our way into GoFood's redesign when the ads team wasn't invited, and building the platform's most successful premium ad format. Lifted merchant ROAS from 2x to 4.5x. Gojek, 2022–2024.
+- [Banner CTR experiment: 60% uplift](https://chandraramanujan.com/gojek-banner-ctr.html): A multivariate experiment and automation workflow that lifted self-serve banner CTR by 60% for GoFood merchants. Gojek, 2024.
+- [Usage analytics dashboard](https://chandraramanujan.com/wayground-usage-analytics.html): Scaling customer success from manual email reports to self-serve admin dashboards, designed around a hard Cassandra data-infrastructure constraint. Wayground, 2025.
+- [Building Gojek's ads design system](https://chandraramanujan.com/gojek-ads-design-system.html): A unified component library and visual principles for all third-party advertising across Gojek, cutting new ad-format launch time from weeks to days. Gojek, 2021–2024.
+
+## Essays
+
+- [Why we banned "fortnite" but not "fortnight"](https://chandraramanujan.com/fortnite-vs-fortnight.html): Why a district moderation tool matches keywords by exact string instead of meaning — legible beat clever.
+- [The ratings we didn't show](https://chandraramanujan.com/the-ratings-we-didnt-show.html): An experiment said hide bad restaurant ratings to lift clicks. Why the click-optimal move was the wrong one.
+- [Why the moderation toggle is deliberately annoying](https://chandraramanujan.com/the-deliberately-annoying-toggle.html): When one person's careless click harms everyone downstream, adding friction is the user-centered move.
+- [Copy-paste beats CSV](https://chandraramanujan.com/copy-paste-beats-csv.html): Cutting the obvious CSV upload and making admins type by hand — friction as a governor on search-wrecking volume.
+- [Very smooth, very powerful](https://chandraramanujan.com/very-smooth-very-powerful.html): An ad-agency internship, a test drive I couldn't legally conduct, and how I figured out I was in the wrong room.
+
+## More
+
+- [All writing](https://chandraramanujan.com/writing.html): Essays, plus articles, talks, workshops, podcasts, and policy work.
+- [In the news](https://chandraramanujan.com/in-the-news.html): Press mentions.
+- [Side projects](https://chandraramanujan.com/side-projects.html): Things I build for fun — a Figma plugin, a browser-based dithering tool, an AI writing studio.
+- [Essays RSS feed](https://chandraramanujan.com/rss.xml): Subscribe to new essays.

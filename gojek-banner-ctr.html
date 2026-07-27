@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banner CTR experiment: 60% uplift — Chandra Ramanujan</title>
+    <meta name="description" content="A multivariate experiment and automation workflow that lifted self-serve banner click-through rates by 60% for GoFood merchants, contributing to a 92% YoY increase in ad revenue.">
+    <!-- Social / Open Graph. Base URL = the single BASE constant; change it in one place to re-point. -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Chandra Ramanujan">
+    <meta property="og:title" content="Banner CTR experiment: 60% uplift — Chandra Ramanujan">
+    <meta property="og:description" content="A multivariate experiment and automation workflow that lifted self-serve banner click-through rates by 60% for GoFood merchants, contributing to a 92% YoY increase in ad revenue.">
+    <meta property="og:url" content="https://chandraramanujan.com/gojek-banner-ctr.html">
+    <meta property="og:image" content="https://chandraramanujan.com/images/og/gojek-banner-ctr.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Banner CTR experiment: 60% uplift — Chandra Ramanujan">
+    <meta name="twitter:description" content="A multivariate experiment and automation workflow that lifted self-serve banner click-through rates by 60% for GoFood merchants, contributing to a 92% YoY increase in ad revenue.">
+    <meta name="twitter:image" content="https://chandraramanujan.com/images/og/gojek-banner-ctr.png">
+    <link rel="canonical" href="https://chandraramanujan.com/gojek-banner-ctr.html">
+    <link rel="icon" type="image/png" href="images/profile.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Chandra Ramanujan — Essays" href="/rss.xml">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "headline": "Banner CTR experiment: 60% uplift",
+        "name": "Banner CTR experiment: 60% uplift",
+        "description": "A multivariate experiment and automation workflow that lifted self-serve banner click-through rates by 60% for GoFood merchants, contributing to a 92% YoY increase in ad revenue.",
+        "url": "https://chandraramanujan.com/gojek-banner-ctr.html",
+        "image": "https://chandraramanujan.com/images/og/gojek-banner-ctr.png",
+        "datePublished": "2024",
+        "inLanguage": "en",
+        "author": {
+            "@type": "Person",
+            "@id": "https://chandraramanujan.com/about.html#person",
+            "name": "Chandra Ramanujan",
+            "url": "https://chandraramanujan.com/about.html"
+        },
+        "publisher": {
+            "@type": "Person",
+            "@id": "https://chandraramanujan.com/about.html#person",
+            "name": "Chandra Ramanujan"
+        },
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Chandra Ramanujan",
+            "url": "https://chandraramanujan.com/"
+        },
+        "about": "Product design case study"
+    }
+    </script>
+</head>
+<body>
+    <div class="container page">
+        <nav class="nav">
+            <a href="index.html" class="nav__brand">Chandra Ramanujan</a>
+            <div class="nav__links">
+                <a href="work.html" class="is-active">Work</a>
+                <a href="side-projects.html">Side Projects</a>
+                <a href="writing.html">Writing</a>
+                <a href="in-the-news.html">News</a>
+                <a href="about.html">About</a>
+                <a href="https://drive.google.com/file/d/1lJdautAZvmx8DzGwb9-IBwlpT_G-Kq8b/view" target="_blank" rel="noopener">Resume</a>
+            </div>
+        </nav>
+        <main>
+        <article>
+
+        <header class="cs-header">
+            <h1>Banner CTR experiment: 60% uplift</h1>
+            <p class="cs-header__subtitle">Using multivariate testing, automation, and code-based methods to improve ad performance for GoFood merchants</p>
+            <p class="cs-header__meta">Product Designer · 2024 · Gojek Ads Team</p>
+        </header>
+
+        <nav class="cs-toc" aria-label="Contents">
+            <a href="#context">Context</a>
+            <a href="#problem">The problem</a>
+            <a href="#research">User research</a>
+            <a href="#hypothesis">Hypothesis</a>
+            <a href="#treatments">Treatments</a>
+            <a href="#production">Production</a>
+            <a href="#results">Results</a>
+            <a href="#developer-collaboration">Developer collaboration</a>
+            <a href="#impact">Impact</a>
+            <a href="#learnings">Learnings</a>
+        </nav>
+
+        <section id="context" class="cs-section prose">
+            <p>At Gojek I designed consumer advertising across Southeast Asia's super-app ecosystem, at a scale of ~30 million monthly active users across Indonesia and Vietnam, balancing merchant ROI, user experience, and rapid experimentation. This case study covers a banner CTR experiment for GoFood's self-serve merchants. It sits alongside my work on the <a href="gojek-ads-design-system.html">ads design system</a> and the <a href="gojek-masthead-ads.html">Masthead premium ad format</a>.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Banner CTR hero.png" alt="Banner CTR Experiment">
+        </figure>
+
+        <section id="problem" class="cs-section prose">
+            <h2>What's the problem?</h2>
+            <p>We make about $100k+ USD per month from thousands of self-serve merchants who run banner ads on GoFood.</p>
+            <p>Self-serve banners creation (legacy process) were inflexible PNGs super-imposed on top of each other that merchants would choose. We'd noticed less customer engagement with self-serve banners vs. sales-assisted banners (more customizable). As a result, merchants would churn and not renew.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Sales Assisted vs Self Serve.png" alt="Sales-assisted vs Self-serve banners comparison">
+            <figcaption class="cs-caption">Sales-assisted banners (left) vs Self-serve banners (right)</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <ul class="metrics">
+                <li><span class="metrics__num">~1-2%</span> — Sales Assisted CTR</li>
+                <li><span class="metrics__num">0.05-0.1%</span> — Self Serve CTR</li>
+            </ul>
+
+            <h3>Why didn't users click on banner ads?</h3>
+            <p>Comparing sales-assisted vs self-serve banners, we identified key differences:</p>
+            <ul>
+                <li><strong>Image quality seen as proxy for food quality</strong> - Self-serve banners had lower quality images</li>
+                <li><strong>Promo information</strong> - Users look at details on discounts/cashback etc</li>
+                <li><strong>Credibility</strong> - Users look for signals like reviews, ratings, to make a decision to order something new</li>
+            </ul>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/User thoughts.png" alt="User thoughts on banner ads">
+        </figure>
+
+        <section id="research" class="cs-section prose">
+            <h3>User behaviour creates a vicious cycle</h3>
+            <ol>
+                <li><strong>Discovery stage:</strong> User views self-serve banner on the GoFood app</li>
+                <li><strong>Consideration stage:</strong> Is the banner relevant to what I want to eat? Does it contain information I care about? (promo/discount/rating)</li>
+                <li><strong>Decision stage:</strong> User ignores banner due to lack of relevance (targeting/algo issue) or lack of information (design issue)</li>
+                <li><strong>Low return on ad spend:</strong> Merchant spends money to run the banner but doesn't see a return. Merchant pulls the ad.</li>
+                <li><strong>Vicious cycle:</strong> Fewer merchants run ads, meaning fewer users are shown banners on the app and banners are less relevant</li>
+            </ol>
+
+            <h2>User research</h2>
+
+            <h3>Card sorting with customer panel</h3>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Card sorting.png" alt="Card sorting research results">
+        </figure>
+
+        <section class="cs-section prose">
+            <p>We wanted to get a prioritisation of what customers cared about (carried out in collaboration with UXR team). Key findings:</p>
+            <ul>
+                <li><strong>Promo details</strong> were the #1 factor in click decisions</li>
+                <li><strong>Ratings/reviews</strong> provided social proof and credibility</li>
+                <li><strong>Image quality</strong> was seen as a proxy for food quality</li>
+                <li><strong>Restaurant name</strong> helped with recognition and trust</li>
+            </ul>
+
+            <h3>Exploring solutions and building the case</h3>
+            <p>I worked with PM and the data team to brainstorm and explore numerous ideas to solve the low CTR problem. This included competitor research with Grab and Foodpanda to understand what was working in the market.</p>
+
+            <h4>The vision: Contextual & personalized banners</h4>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/vision - personalised and contextualised.png" alt="Vision for personalized and contextual banners">
+        </figure>
+
+        <section class="cs-section prose">
+            <p>My hypothesis was that by making banners contextual to user preferences and behaviour, we could significantly improve ad relevance and CTR. The ideal future state would include:</p>
+            <ul>
+                <li><strong>Personalized SKU discounts</strong> - Banners showing discounts for categories users have ordered before</li>
+                <li><strong>Social proof</strong> - User-generated content and popularity signals ("2,000+ people ordered this today") to tap into the hive mind effect</li>
+                <li><strong>Behavioral targeting</strong> - Reducing friction in decision-making by showing relevant offers at the right time</li>
+            </ul>
+
+            <blockquote>
+                <p>"This was the idealized vision - what we could eventually achieve. Some ideas required tech and data infrastructure we didn't have yet. But I presented them as possibilities to plant seeds for the future, while focusing the immediate experiment on what we could realistically build and test."</p>
+            </blockquote>
+
+            <p>After presenting these ideas to product and design leadership, we got the green light to move forward. With bandwidth and alignment secured, we scoped an experiment we could execute immediately while keeping the longer-term vision in mind.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/2x2 matrix.png" alt="Card sorting next steps">
+            <figcaption class="cs-caption">Prioritising which data points to test based on feasibility. Data points that stayed the same for most users were prioritised</figcaption>
+        </figure>
+
+        <section id="hypothesis" class="cs-section prose">
+            <h2>We defined our hypothesis and end state</h2>
+
+            <blockquote>
+                <p><strong>Hypothesis:</strong> If our banners contain the data points that are relevant to our customers' purchase intent then we will see an increase in click through rate on banners</p>
+            </blockquote>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Experiment-and-treatments.png" alt="Experiment and treatments overview">
+        </figure>
+
+        <section id="treatments" class="cs-section prose">
+            <h4>Data points chosen</h4>
+            <ul>
+                <li><strong>Discount amount details</strong> - Showing specific promo values</li>
+                <li><strong>Restaurant rating</strong> - Adding social proof and credibility</li>
+                <li><strong>Design changes to emphasise promo</strong> - Visual hierarchy improvements</li>
+            </ul>
+
+            <h3>Turning qual insight into measurable metrics</h3>
+            <p>Key questions we had to answer:</p>
+            <ul>
+                <li>How do you turn qual insight into a measurable metric?</li>
+                <li>How do you draw a relationship between a point of information on the banner, versus the actual user behaviour that it causes?</li>
+            </ul>
+
+            <p><strong>Multivariate testing approach chosen:</strong> Same core mechanism as A/B testing, but compares a higher number of variables, and reveals more information about how these variables interact with one another.</p>
+
+            <h2>Experiment treatments</h2>
+            <p>Worked with PM, Data Science and engineering to define experiment hypothesis and parameters. We designed 6 treatments to test different combinations:</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Banner-CTR-Hypotheses.png" alt="All 6 experiment treatments">
+            <figcaption class="cs-caption">All 6 treatments tested in the multivariate experiment</figcaption>
+        </figure>
+
+        <section id="production" class="cs-section prose">
+            <h2>How do we put this into production?</h2>
+            <p>For the experiment to be statistically significant, there must be a minimum number of daily users it had to reach.</p>
+            <p><strong>Scale:</strong> Total: 6 banners × 2 merchants × 10 cities = 120 banners</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Banner-CTR-map.png" alt="Banner CTR experiment map">
+        </figure>
+
+        <section class="cs-section prose">
+            <h3>Process</h3>
+            <ol>
+                <li><strong>Worked with PM and Biz team</strong> to get data points</li>
+                <li><strong>Created a spreadsheet</strong> and broke down image parameters (merchant name, rating, image URL) for each merchant × treatment</li>
+                <li><strong>Evaluated and used a plugin</strong> to auto-generate the banners</li>
+                <li><strong>Transformed the data</strong> into a CSV that was parse-able by the plugin to generate the banners</li>
+            </ol>
+
+            <p>This automation approach saved weeks of manual design work and ensured consistency across all 120 banner variations.</p>
+        </section>
+
+        <figure class="cs-image">
+            <video controls preload="metadata" playsinline>
+                <source src="images/video-automation-plugin.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <figcaption class="cs-caption">Figma plugin workflow for automated banner generation (click to play)</figcaption>
+        </figure>
+
+        <section id="results" class="cs-section prose">
+            <h2>Experiment results</h2>
+            <p>Treatment 2 and Treatment 5 emerged as winners of the experiment. This meant that our hypothesis of showcasing discount amount details and information hierarchy improvements were validated.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Banner-experiment-results.png" alt="Experiment results showing treatment performance">
+        </figure>
+
+        <section id="developer-collaboration" class="cs-section prose">
+            <h3>Counter-intuitive insight</h3>
+            <p>We had some hypotheses around this. <strong>Rating affected CTR only when the rating was good.</strong> This led to some ethical questions:</p>
+            <ul>
+                <li>Do we show rating if rating is low?</li>
+                <li>Do we optimise for click through rate or user satisfaction?</li>
+                <li>What are other data points we can show that provide social proof and credibility apart from rating?</li>
+            </ul>
+
+            <h2>New challenge - developer collaboration</h2>
+            <p>Prior merchant ad solution was built as an MVP with limited functionality. Now the solution had to change to include additional data points as per experiment results.</p>
+            <p>It was becoming a bit complex to communicate everything as a PRD. So I thought: <strong>what can I do as a designer to shorten this process?</strong></p>
+
+            <h3>Solution: code-based proof of concept</h3>
+            <p>I created a code-based proof of concept for the engineering team, using internal APIs to demonstrate how the component could work and collaborated as they built it in terms of high-fidelity specs and visual QA.</p>
+        </section>
+
+        <figure class="cs-image">
+            <video controls preload="metadata" playsinline>
+                <source src="images/video-code-snippet.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <figcaption class="cs-caption">Code-based prototype showing component implementation (click to play)</figcaption>
+        </figure>
+
+        <figure class="cs-image">
+            <img src="images/Banner-CTR-UI-specs.png" alt="UI specifications for developers">
+            <figcaption class="cs-caption">Sneak peek of UI specs for dev</figcaption>
+        </figure>
+
+        <section id="impact" class="cs-section prose">
+            <h2>Impact</h2>
+
+            <ul class="metrics">
+                <li><span class="metrics__num">60%</span> — Uplift in ads CTR</li>
+                <li><span class="metrics__num">100%</span> — Scaled to all merchants</li>
+                <li><span class="metrics__num">92%</span> — YoY increase in ad revenue</li>
+            </ul>
+
+            <ul>
+                <li>Project and methods received great feedback from cross-functional peers</li>
+                <li>Presented case study at design all hands to team & leadership</li>
+                <li>New ad format scaled up to 100% merchants and customers</li>
+                <li>Increased merchant signup and retention contributed to 92% increase in advertising revenue in 2024</li>
+            </ul>
+
+            <h3>Social proof beyond the star rating</h3>
+            <p>Rating wasn't the only signal that worked. We kept iterating and found other data points that carried social proof just as well — "Ordered x times by people near you," for instance, built credibility and drove engagement without leaning on a star rating at all. Proximity and popularity turned out to be their own form of trust.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Banner-CTR-impact.png" alt="Banner CTR optimization impact">
+            <figcaption class="cs-caption">Using "Ordered x times by people near you" as social proof.</figcaption>
+        </figure>
+
+        <section id="learnings" class="cs-section prose">
+            <h2>Learnings and next steps</h2>
+
+            <blockquote>
+                <p>"Tools complement, not substitute well-defined hypothesis and rigorous thinking. In setting up an experiment, you need to account for not just what you want to find, but how you will go about finding it. The work is never done."</p>
+            </blockquote>
+
+            <h3>Addressing patchy merchant image quality</h3>
+            <p>Even though we increased merchant participation, we created a new problem: <strong>image quality was still inconsistent.</strong> How do we curate at scale? We still haven't cracked this.</p>
+
+            <p>We had some vision for how to solve it. We realized we needed to give merchants feedback in their campaign reports - showing them when poor image quality was leading to bad engagement. That became the next problem we were supposed to solve... but it hasn't been solved since I left Gojek!</p>
+
+            <h3>Creating a better framework for personalisation & performance</h3>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Banner-CTR-next steps.png" alt="Vision for next generation banner personalization">
+        </figure>
+
+        <section class="cs-section prose">
+            <p>My vision was for banner ads to <strong>no longer be PNGs but UI overlays on high-quality merchant images</strong>, where copy could be tailored to user personas:</p>
+
+            <ul>
+                <li><strong>Social proof</strong> for people who need validation</li>
+                <li><strong>Discounts</strong> for discount hunters</li>
+                <li><strong>Ratings</strong> for foodies</li>
+            </ul>
+
+            <p>It would be dynamic and more in line with state-of-the-art advertising that Meta and Google could offer. Of course, we couldn't get there during my time, but that's the vision I drove in the GoFood redesign - planting seeds for the future.</p>
+        </section>
+
+        </article>
+<nav class="cs-nav">
+            <a href="work.html">← Back to work</a>
+            <a href="wayground-content-moderation.html">Next project →</a>
+        </nav>
+
+        </main>
+
+        <footer class="footer">
+            &copy; 2026 Chandra Ramanujan
+        </footer>
+    </div>
+    <script src="lightbox.js" defer></script>
+</body>
+</html>

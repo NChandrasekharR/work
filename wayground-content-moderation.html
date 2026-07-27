@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content moderation under political pressure — Chandra Ramanujan</title>
+    <meta name="description" content="Fighting to preserve product value while satisfying political concerns in conservative states — building a granular content-moderation tool for Wayground admins instead of a library kill switch, closing 3 deals worth $400K.">
+    <!-- Social / Open Graph. Base URL = the single BASE constant; change it in one place to re-point. -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Chandra Ramanujan">
+    <meta property="og:title" content="Content moderation under political pressure — Chandra Ramanujan">
+    <meta property="og:description" content="Fighting to preserve product value while satisfying political concerns in conservative states — building a granular content-moderation tool for Wayground admins instead of a library kill switch, closing 3 deals worth $400K.">
+    <meta property="og:url" content="https://chandraramanujan.com/wayground-content-moderation.html">
+    <meta property="og:image" content="https://chandraramanujan.com/images/og/wayground-content-moderation.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Content moderation under political pressure — Chandra Ramanujan">
+    <meta name="twitter:description" content="Fighting to preserve product value while satisfying political concerns in conservative states — building a granular content-moderation tool for Wayground admins instead of a library kill switch, closing 3 deals worth $400K.">
+    <meta name="twitter:image" content="https://chandraramanujan.com/images/og/wayground-content-moderation.png">
+    <link rel="canonical" href="https://chandraramanujan.com/wayground-content-moderation.html">
+    <link rel="icon" type="image/png" href="images/profile.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Chandra Ramanujan — Essays" href="/rss.xml">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "headline": "Content moderation under political pressure",
+        "name": "Content moderation under political pressure",
+        "description": "Fighting to preserve product value while satisfying political concerns in conservative states — building a granular content-moderation tool for Wayground admins instead of a library kill switch, closing 3 deals worth $400K.",
+        "url": "https://chandraramanujan.com/wayground-content-moderation.html",
+        "image": "https://chandraramanujan.com/images/og/wayground-content-moderation.png",
+        "datePublished": "2025",
+        "inLanguage": "en",
+        "author": {
+            "@type": "Person",
+            "@id": "https://chandraramanujan.com/about.html#person",
+            "name": "Chandra Ramanujan",
+            "url": "https://chandraramanujan.com/about.html"
+        },
+        "publisher": {
+            "@type": "Person",
+            "@id": "https://chandraramanujan.com/about.html#person",
+            "name": "Chandra Ramanujan"
+        },
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Chandra Ramanujan",
+            "url": "https://chandraramanujan.com/"
+        },
+        "about": "Product design case study"
+    }
+    </script>
+</head>
+<body>
+    <div class="container page">
+        <nav class="nav">
+            <a href="index.html" class="nav__brand">Chandra Ramanujan</a>
+            <div class="nav__links">
+                <a href="work.html" class="is-active">Work</a>
+                <a href="side-projects.html">Side Projects</a>
+                <a href="writing.html">Writing</a>
+                <a href="in-the-news.html">News</a>
+                <a href="about.html">About</a>
+                <a href="https://drive.google.com/file/d/1lJdautAZvmx8DzGwb9-IBwlpT_G-Kq8b/view" target="_blank" rel="noopener">Resume</a>
+            </div>
+        </nav>
+        <main>
+        <article>
+
+        <header class="cs-header">
+            <h1>Content moderation under political pressure</h1>
+            <p class="cs-header__subtitle">Fighting to preserve product value while satisfying political concerns in conservative states</p>
+            <p class="cs-header__meta">Product Designer · 2025 · PM, Engineering, Sales</p>
+        </header>
+
+        <nav class="cs-toc" aria-label="Contents">
+            <a href="#overview">Overview</a>
+            <a href="#context">The political context</a>
+            <a href="#dilemma">The dilemma</a>
+            <a href="#fight">The fight</a>
+            <a href="#reframing">Reframing</a>
+            <a href="#solution">The solution</a>
+            <a href="#decisions">Design decisions</a>
+            <a href="#pitch">Internal pitch</a>
+            <a href="#impact">Impact &amp; learnings</a>
+        </nav>
+
+        <figure class="cs-image">
+            <img src="images/Content-policy-hero.png" alt="Content moderation tool">
+        </figure>
+
+        <section id="overview" class="cs-section prose">
+            <h2>Overview</h2>
+            <p>To unlock the next level of sales, Wayground had to transition from an individual teacher product to a robust enterprise solution for large schools and districts. This meant building admin controls, scalable reporting, and features that satisfied district procurement requirements - all while keeping teachers at the center of the product.</p>
+            <p>This case study is one of two projects that defined our enterprise strategy. Here I cover content moderation - fighting to preserve product value while satisfying political concerns in conservative states. The companion project, <a href="wayground-usage-analytics.html">usage analytics</a>, covers scaling customer success from manual reports to self-service dashboards.</p>
+            <p>What went into that? Mostly a lot of meetings, strategic fights, and thoughtful design.</p>
+        </section>
+
+        <section id="context" class="cs-section prose">
+            <h3>The political context</h3>
+            <p>We had this global content library - thousands of quizzes and resources that teachers could access. Great for product value.</p>
+            <p>But then Republican states started passing 'Parents Bill of Rights' laws. Any edtech platform with content mentioning LGBT, critical race theory, certain historical topics - getting blocked at the district firewall level.</p>
+            <p>We're losing deals. Sales is panicking. They come to product and say: 'Just let admins turn off the global library entirely. Problem solved.'</p>
+            <p>And I'm sitting there thinking... that's the worst possible solution.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Content-policy-news.png" alt="Political context and news">
+        </figure>
+
+        <section id="dilemma" class="cs-section prose">
+            <h3>The dilemma</h3>
+            <p><strong>Option A (what Sales wanted): Global toggle</strong> - admins turn off entire library.</p>
+            <ul>
+                <li>✅ Solves the political problem</li>
+                <li>❌ Destroys product value</li>
+                <li>❌ Teachers lose access to 90% useful content because 10% is 'controversial'</li>
+                <li>❌ We look bad - 'the edtech platform that removed all its content'</li>
+            </ul>
+
+            <p><strong>Option B (do nothing):</strong></p>
+            <ul>
+                <li>❌ Keep losing deals in red states</li>
+                <li>❌ Sales continues to panic</li>
+                <li>❌ Problem doesn't go away</li>
+            </ul>
+
+            <p>Neither option was acceptable to me.</p>
+
+            <h3 id="fight">The fight</h3>
+            <p>So I pushed back hard on Sales. I'm in meetings saying:</p>
+            <blockquote>
+                <p>'If we just give admins a kill switch, we're putting teachers under the bus. They lose their best resources. We're destroying the product to save a sale. And we don't even know if they'll buy after we build this.'</p>
+            </blockquote>
+            <!-- TODO(chandra: soften? "Sales is pissed at me") -->
+            <p>Sales is pissed at me. They're like, 'The customer is always right, just build what they want.'</p>
+            <p>PM is caught in the middle. Eng is waiting for us to figure it out.</p>
+            <p>This is where it got messy. I had to decide: Do I die on this hill?</p>
+
+            <h3 id="reframing">Reframing the problem</h3>
+            <p>So I worked with the PM to reframe the problem. Instead of:</p>
+            <blockquote>
+                <p>'Should we kill the library?'</p>
+            </blockquote>
+            <p>We asked:</p>
+            <blockquote>
+                <p>'How do we give admins control without destroying teacher value?'</p>
+            </blockquote>
+
+            <h3 id="solution">The solution: granular content moderation</h3>
+            <p>We landed on a granular content moderation tool where admins could:</p>
+            <ul>
+                <li>Filter by keyword (LGBT, race, religion, politics, etc)</li>
+                <li>Preview flagged content before hiding it</li>
+                <li>Set district-wide policies</li>
+                <li>Teachers could still request access with justification</li>
+            </ul>
+
+            <p>This way:</p>
+            <ul>
+                <li>✅ Admins feel in control (political cover)</li>
+                <li>✅ Teachers aren't blindsided (they can see what's hidden and why)</li>
+                <li>✅ We preserve 90% of the library value</li>
+                <li>✅ We show sophistication, not cowardice</li>
+            </ul>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Content-policy-blank-state.png" alt="Content moderation tool">
+            <figcaption class="cs-caption">The blank state of the moderation tool.</figcaption>
+        </figure>
+
+        <section id="decisions" class="cs-section prose">
+            <h3>Design decisions</h3>
+
+            <h4>Information hierarchy, and what we deliberately didn't show</h4>
+            <p>The blank state was ordered as a hierarchy: action on students → all content → specific content. But the more consequential decision was what to leave out. In the block-specific-resources section we show only that a resource was used — not who used it or where. Admins had asked for the who and the where. We didn't build it. We're a teacher-led tool, and the fastest way to kill it would have been to make teachers feel watched. I wanted the admin's attention on content at all times, never on individual teachers, so teachers wouldn't stop using the product just because moderation was now in play.</p>
+
+            <h4>Making the toggle feel weighty</h4>
+            <p>Admins had to flip a toggle to enable keyword blocking. I deliberately wanted that to feel like a weighty action that had consequences - not something you'd flick on by accident. Turning it on changes what teachers and students across a whole district can see, so the interaction needed to carry that gravity.</p>
+
+            <h4>Copy-paste over CSV upload</h4>
+            <p>The ideal UX here was obviously to let admins upload a CSV. But when we spoke to admins, they told us they had 1000+ keywords they'd just dump in. That volume would have degraded our search and recommendations, since the system would have to account for all of them. So we let admins copy-paste from an Excel sheet or enter keywords manually instead. Frankly, we also didn't want them adding too many keywords in the first place.</p>
+
+            <h4>Exact match, not semantic match</h4>
+            <p>The other big debate was semantic matching vs exact matching. For example, do we ban resources containing "fortnight" as well as "fortnite"? Once you go semantic, you can easily end up banning resources on finance "equities" just because someone blocked "equity" as in DEI. To avoid those kinds of errors, we did exact match only.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Content-policy-toggle.png" alt="Content policy toggle and keyword blocking">
+            <figcaption class="cs-caption">The keyword-blocking toggle and manual keyword entry.</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <h4>Hiding the blocked keyword</h4>
+            <p>On the activity details page, when a teacher landed on a blocked resource, we encouraged them to contact the administrator. But we deliberately couldn't show which exact keyword had triggered the block. If we did, users could just work around it - swap in a synonym or spell the word differently. So we had to think a bit adversarially here and keep the specific trigger hidden.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Content-policy-ADP.png" alt="Activity details page for blocked content">
+            <figcaption class="cs-caption">The activity details page teachers see when a resource is blocked.</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <h4>Saving to drafts instead of deleting</h4>
+            <p>There were many edge cases to deal with here. Since Wayground is a content creation product, we couldn't afford to break the content publishing UX. So we had to figure out how to fold content moderation in at the moment a user published a resource. The idea we landed on was to save the resource into drafts instead of deleting it. That way teachers still kept access to their work, without it being visible to students.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Content-policy-draft.png" alt="Content moderation edge cases and draft handling">
+            <figcaption class="cs-caption">Handling a moderated resource at publish time by moving it to drafts.</figcaption>
+        </figure>
+
+        <section id="pitch" class="cs-section prose">
+            <h3>Internal pitch &amp; building it</h3>
+            <p>But here's the thing - this was way harder to build than the kill switch. More eng effort, more edge cases, more QA.</p>
+            <p>So I had to pitch it internally:</p>
+            <!-- TODO(chandra: soften? "shitty product") -->
+            <blockquote>
+                <p>'Yes, this takes 6 weeks instead of 2. But if we just give them a kill switch, they might not buy anyway. And if they do buy, we've built a shitty product. This solution actually solves their problem AND keeps our product good.'</p>
+            </blockquote>
+            <!-- TODO(chandra: soften? "piss everyone off") -->
+            <p>We had to navigate through intense political context and sales pushback. The hard conversations with stakeholders were about balancing district needs with teacher experience, and investing engineering effort wisely. We gathered feedback internally, iterated on the approach, and figured out how to build something that satisfied everyone - or at least didn't piss everyone off.</p>
+
+            <h3 id="impact">Impact &amp; key learnings</h3>
+            <p>We shipped it. Sales used it to close 3 deals in red states worth $400K. Admins loved the control. Teachers didn't revolt because they could still request access (which was what we were really scared of).</p>
+
+            <ul class="metrics">
+                <li><span class="metrics__num">3</span> — Deals closed in red states, worth $400K</li>
+                <li><span class="metrics__num">15%</span> — District adoption rate</li>
+                <li><span class="metrics__num">90%</span> — Library value preserved</li>
+            </ul>
+
+            <p>Adoption stayed narrow: 15% of districts used the tool. Most admins didn't care about the controversy, they just wanted good content. The districts that did care carried $400K in deals.</p>
+            <p><strong>What I learned:</strong> Sometimes you build features for 15% of customers because those 15% are strategic. And sometimes the fight isn't about the feature - it's about not destroying your product to solve a sales problem.</p>
+        </section>
+
+        <section class="cs-section prose">
+            <p><em>While content moderation unlocked sales in politically sensitive markets, we had another scalability problem: our customer success team was drowning in manual reporting requests. Enterprise customers needed usage data to justify renewals, but our CS team couldn't keep up with the volume of ad-hoc data requests. The solution would require a completely different kind of design thinking - moving from fighting stakeholders to enabling them. Read that story in <a href="wayground-usage-analytics.html">usage analytics</a>.</em></p>
+        </section>
+
+        </article>
+<nav class="cs-nav">
+            <a href="work.html">← Back to work</a>
+            <a href="wayground-game-settings.html">Next project →</a>
+        </nav>
+
+        </main>
+
+        <footer class="footer">
+            &copy; 2026 Chandra Ramanujan
+        </footer>
+    </div>
+    <script src="lightbox.js" defer></script>
+</body>
+</html>

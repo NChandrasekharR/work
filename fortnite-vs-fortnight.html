@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why we banned "fortnite" but not "fortnight" — Chandra Ramanujan</title>
+    <meta name="description" content="Why a district content-moderation tool matches keywords by exact string instead of meaning, and why the smarter-looking option was the wrong one.">
+    <!-- Social / Open Graph. Base URL = the single BASE constant; change it in one place to re-point. -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Chandra Ramanujan">
+    <meta property="og:title" content="Why we banned &quot;fortnite&quot; but not &quot;fortnight&quot; — Chandra Ramanujan">
+    <meta property="og:description" content="Why a district content-moderation tool matches keywords by exact string instead of meaning, and why the smarter-looking option was the wrong one.">
+    <meta property="og:url" content="https://chandraramanujan.com/fortnite-vs-fortnight.html">
+    <meta property="og:image" content="https://chandraramanujan.com/images/og/fortnite-vs-fortnight.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why we banned &quot;fortnite&quot; but not &quot;fortnight&quot; — Chandra Ramanujan">
+    <meta name="twitter:description" content="Why a district content-moderation tool matches keywords by exact string instead of meaning, and why the smarter-looking option was the wrong one.">
+    <meta name="twitter:image" content="https://chandraramanujan.com/images/og/fortnite-vs-fortnight.png">
+    <link rel="canonical" href="https://chandraramanujan.com/fortnite-vs-fortnight.html">
+    <link rel="icon" type="image/png" href="images/profile.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Chandra Ramanujan — Essays" href="/rss.xml">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Why we banned \"fortnite\" but not \"fortnight\"",
+        "name": "Why we banned \"fortnite\" but not \"fortnight\"",
+        "description": "Why a district content-moderation tool matches keywords by exact string instead of meaning, and why the smarter-looking option was the wrong one.",
+        "url": "https://chandraramanujan.com/fortnite-vs-fortnight.html",
+        "image": "https://chandraramanujan.com/images/og/fortnite-vs-fortnight.png",
+        "datePublished": "2026",
+        "inLanguage": "en",
+        "author": {
+            "@type": "Person",
+            "@id": "https://chandraramanujan.com/about.html#person",
+            "name": "Chandra Ramanujan",
+            "url": "https://chandraramanujan.com/about.html"
+        },
+        "publisher": {
+            "@type": "Person",
+            "@id": "https://chandraramanujan.com/about.html#person",
+            "name": "Chandra Ramanujan"
+        },
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Chandra Ramanujan",
+            "url": "https://chandraramanujan.com/"
+        },
+        "articleSection": "Essay"
+    }
+    </script>
+</head>
+<body>
+    <div class="container page">
+        <nav class="nav">
+            <a href="index.html" class="nav__brand">Chandra Ramanujan</a>
+            <div class="nav__links">
+                <a href="work.html">Work</a>
+                <a href="side-projects.html">Side Projects</a>
+                <a href="writing.html" class="is-active">Writing</a>
+                <a href="in-the-news.html">News</a>
+                <a href="about.html">About</a>
+                <a href="https://drive.google.com/file/d/1lJdautAZvmx8DzGwb9-IBwlpT_G-Kq8b/view" target="_blank" rel="noopener">Resume</a>
+            </div>
+        </nav>
+        <main>
+        <article>
+
+        <header class="cs-header">
+            <h1>Why we banned "fortnite" but not "fortnight"</h1>
+            <p class="cs-header__meta">Essay · 2026</p>
+        </header>
+
+        <section class="cs-section prose">
+            <p>Republican states started passing "Parents Bill of Rights" laws, and edtech platforms with content mentioning LGBT, critical race theory, or certain historical topics were getting blocked at the district firewall. We were losing deals over it. Sales wanted a kill switch — let admins turn off the entire global content library and be done with it. I fought that, and we landed on a granular moderation tool instead: admins block content by keyword, teachers can still see what's hidden and request access.</p>
+
+            <p>That fight is a whole other story. This one is about a smaller decision that sounds trivial until you sit with it: when an admin types a word into the block list, what exactly are we matching against?</p>
+
+            <h2>The obvious answer is the wrong one</h2>
+
+            <p>The intuitive thing is semantic matching. An admin bans "equity" because they mean the DEI sense of it. You'd think the helpful move is to catch the intent — block the concept, not just the string. Match synonyms, related terms, anything close enough.</p>
+
+            <p>Here's where that falls apart. "Equity" and "equities" are one letter apart. One is a culture-war flashpoint. The other is a finance term — a perfectly good math and economics resource about stocks. If we're matching on meaning, or matching loosely, we block the finance content too. The admin never asked for that. They didn't even know it happened. And now a teacher trying to pull up a lesson on the stock market hits a wall for reasons nobody can explain.</p>
+
+            <p>Same shape, different words: "fortnite" and "fortnight." One's a video game some districts don't want in front of kids. The other means two weeks — it shows up in reading passages, history, half the British novels in the library. Ban the game, catch the timespan. Congratulations, you've hidden Great Expectations because someone was worried about Epic Games.</p>
+
+            <p>The trap is that semantic matching <em>feels</em> smarter. It looks like we're doing the admin a favor by being thorough. What we're actually doing is making the tool unpredictable — and an unpredictable moderation tool is worse than a blunt one, because nobody can trust what it did.</p>
+
+            <h2>So we did exact match only</h2>
+
+            <p>Type "fortnite," you block "fortnite." Not "fortnight," not "night," not anything semantically adjacent. The word you typed is the word we match. Nothing fuzzy, nothing inferred.</p>
+
+            <p>This is a worse tool on paper. An admin who wants to block a <em>concept</em> has to think of every spelling and every related term themselves — "equity," "equities," "equitable," and so on if that's really what they want gone. We pushed that work onto them on purpose. Because the alternative is us guessing at intent and being wrong in ways that quietly break the product for teachers who did nothing wrong.</p>
+
+            <p>The whole point of the granular tool was to give admins control <em>without</em> torching teacher value. Semantic matching would have handed that value right back out the window through the side door — over-blocking legitimate content the admin never targeted, with no visible reason and no easy way to notice. Exact match keeps the blast radius exactly as wide as the admin drew it. If something gets blocked, it got blocked because someone typed that literal word. That's a decision you can stand behind and explain.</p>
+
+            <h2>The adversarial half</h2>
+
+            <p>Exact matching created a second problem, and it's the reason I couldn't just show teachers what was blocked and call it a day.</p>
+
+            <p>When a teacher hits a blocked resource, the humane thing is to tell them why — "this was hidden because it contains the word X, contact your administrator." But we couldn't. If we exposed the exact keyword, we'd be handing motivated users the workaround for free. Ban "fortnite," and now anyone who sees the reason just writes "Fort-nite" or "F0rtnite" or swaps in a synonym and sails through. We'd have built a filter and then printed instructions for bypassing it on the error page.</p>
+
+            <p>So on the blocked page we pointed teachers to their administrator, but we deliberately didn't reveal the matched keyword. It's a little cold, and I didn't love it. But moderation only works if you assume some fraction of users are actively trying to route around it. You have to think adversarially even when most of your users are teachers acting in good faith, because the tool has to hold against the ones who aren't.</p>
+
+            <h2>What I'd take from it</h2>
+
+            <p>Two things stuck with me.</p>
+
+            <p>First: when you're deciding how a system matches, "smarter" and "more predictable" are usually in tension, and for a moderation tool predictable wins. The admin needs to be able to reason about what their block list will and won't catch. Exact match is dumber and far more legible. Legible beat clever here.</p>
+
+            <p>Second: the equities trap is the whole argument in one word. A single letter is the difference between doing what the admin asked and silently breaking a finance lesson. When the cost of over-reach lands on people who never touched the control — teachers, in this case — you design for the narrowest, most literal interpretation and make the human do the rest of the work explicitly. Better to under-block and stay explainable than over-block and become a mystery.</p>
+
+            <p><em>This decision comes from <a href="wayground-content-moderation.html">the Wayground content moderation work</a>.</em></p>
+        </section>
+
+        
+        </article>
+</main>
+
+        <footer class="footer">
+            &copy; 2026 Chandra Ramanujan
+        </footer>
+    </div>
+</body>
+</html>

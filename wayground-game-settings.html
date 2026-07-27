@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do we ever need modes? — Chandra Ramanujan</title>
+    <meta name="description" content="Rebuilding the IA of Wayground's most-trafficked surface, the session setup page, twice. From mode-coupled engineering debris to horizontal capability buckets, then to theming as wayfinding. Anti-cheating grew to 50% of all sessions and Test mode adoption rose from 5% to 27%, with zero power-user regression.">
+    <!-- Social / Open Graph. Base URL = the single BASE constant; change it in one place to re-point. -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Chandra Ramanujan">
+    <meta property="og:title" content="Do we ever need modes? — Chandra Ramanujan">
+    <meta property="og:description" content="Rebuilding the IA of Wayground's most-trafficked surface, the session setup page, twice. From mode-coupled engineering debris to horizontal capability buckets, then to theming as wayfinding. Anti-cheating grew to 50% of all sessions and Test mode adoption rose from 5% to 27%, with zero power-user regression.">
+    <meta property="og:url" content="https://chandraramanujan.com/wayground-game-settings.html">
+    <meta property="og:image" content="https://chandraramanujan.com/images/og/wayground-game-settings.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Do we ever need modes? — Chandra Ramanujan">
+    <meta name="twitter:description" content="Rebuilding the IA of Wayground's most-trafficked surface, the session setup page, twice. From mode-coupled engineering debris to horizontal capability buckets, then to theming as wayfinding. Anti-cheating grew to 50% of all sessions and Test mode adoption rose from 5% to 27%, with zero power-user regression.">
+    <meta name="twitter:image" content="https://chandraramanujan.com/images/og/wayground-game-settings.png">
+    <link rel="canonical" href="https://chandraramanujan.com/wayground-game-settings.html">
+    <link rel="icon" type="image/png" href="images/profile.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Chandra Ramanujan — Essays" href="/rss.xml">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "headline": "Do we ever need modes?",
+        "name": "Do we ever need modes?",
+        "description": "Rebuilding the IA of Wayground's most-trafficked surface, the session setup page, twice. From mode-coupled engineering debris to horizontal capability buckets, then to theming as wayfinding. Anti-cheating grew to 50% of all sessions and Test mode adoption rose from 5% to 27%, with zero power-user regression.",
+        "url": "https://chandraramanujan.com/wayground-game-settings.html",
+        "image": "https://chandraramanujan.com/images/og/wayground-game-settings.png",
+        "datePublished": "2025",
+        "inLanguage": "en",
+        "author": {
+            "@type": "Person",
+            "@id": "https://chandraramanujan.com/about.html#person",
+            "name": "Chandra Ramanujan",
+            "url": "https://chandraramanujan.com/about.html"
+        },
+        "publisher": {
+            "@type": "Person",
+            "@id": "https://chandraramanujan.com/about.html#person",
+            "name": "Chandra Ramanujan"
+        },
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Chandra Ramanujan",
+            "url": "https://chandraramanujan.com/"
+        },
+        "about": "Product design case study"
+    }
+    </script>
+</head>
+<body>
+    <div class="container page">
+        <nav class="nav">
+            <a href="index.html" class="nav__brand">Chandra Ramanujan</a>
+            <div class="nav__links">
+                <a href="work.html" class="is-active">Work</a>
+                <a href="side-projects.html">Side Projects</a>
+                <a href="writing.html">Writing</a>
+                <a href="in-the-news.html">News</a>
+                <a href="about.html">About</a>
+                <a href="https://drive.google.com/file/d/1lJdautAZvmx8DzGwb9-IBwlpT_G-Kq8b/view" target="_blank" rel="noopener">Resume</a>
+            </div>
+        </nav>
+        <main>
+        <article>
+
+        <header class="cs-header">
+            <h1>Do we ever need modes?</h1>
+            <p class="cs-header__subtitle">Rebuilding the IA of Wayground's most-trafficked surface — the session setup page — twice</p>
+            <p class="cs-header__meta">Lead Product Designer · 2025 · PM, UXR, Engineering</p>
+        </header>
+
+        <nav class="cs-toc" aria-label="Contents">
+            <a href="#overview">Overview</a>
+            <a href="#impact">Impact</a>
+            <a href="#problem">The problem</a>
+            <a href="#provocation">The provocation</a>
+            <a href="#research">Research</a>
+            <a href="#principles">Principles</a>
+            <a href="#approaches">Approaches</a>
+            <a href="#competition">Competition</a>
+            <a href="#iteration-one">Iteration 1</a>
+            <a href="#regression">The regression</a>
+            <a href="#iteration-two">Iteration 2</a>
+            <a href="#learnings">Learnings</a>
+        </nav>
+
+        <figure class="cs-image">
+            <video src="images/wayground-gs/game-settings-end-to-end-journey.mp4" autoplay muted loop playsinline controls aria-label="End to end journey of the session setup experience in production"></video>
+            <figcaption class="cs-caption">End to end journey of the session setup experience in production today.</figcaption>
+        </figure>
+
+        <section id="overview" class="cs-section prose">
+            <h2>Overview</h2>
+            <p>Wayground's session setup page is the surface every teacher hits before every session. It's the most-trafficked screen in the product. It was also where usage had calcified: 25% of all users only ever ran async games, only 6% ever migrated to live, and Test mode, the obvious home for serious assessment, reached 5% of active teachers. Anti-cheating, the most-requested capability in our research, sat locked inside a single mode.</p>
+
+            <p>The brief, when it landed on my desk in July 2025, was framed as "add more settings to the page." I pushed back. The page wasn't underbuilt. It was a faithful rendering of how the backend organized configuration, surfaced to teachers as if engineering's mental model were also theirs. Adding more settings would have made it worse. We needed to start from scratch. I owned the IA, the settings grammar, the principles framework, and page-level layout across both iterations that followed.</p>
+
+            <p>What followed was five months of work across two shipped iterations. The first re-architected the IA into horizontal capability buckets — Anti-cheating, Mastery, Gamification — instead of mode-coupled features. The second responded to a post-launch regression: teachers were reverting to Classic mode because the new IA, while structurally correct, didn't give them confidence their mode choice had persisted through to setup. The fix was theming as wayfinding — each mode got its own visual world, so teachers couldn't doubt where they were.</p>
+
+            <p>By Q4 2025, anti-cheating ran in 50% of all sessions, and sales cited it as a deciding factor in four enterprise deals within a month of launch. Test mode adoption grew from 5% to 27% of active teachers, Teacher Paced from 15% to 25%, Practice from 13% to 20%. Power-user behavior held steady.</p>
+        </section>
+
+        <section id="impact" class="cs-section prose">
+            <h2>Impact &amp; results</h2>
+
+            <p>Anti-cheating, unlocked from Test mode and rebuilt as a horizontal capability, became the headline.</p>
+
+            <ul class="metrics">
+                <li><span class="metrics__num">50%</span> — of all sessions now run with anti-cheating on. Sales cited it as a deciding factor in 4 enterprise deals within 1 month of launch, and it generated 30% of lead volume</li>
+                <li><span class="metrics__num">5% → 27%</span> — Test mode adoption among active teachers</li>
+                <li><span class="metrics__num">15% → 25%</span> — Teacher Paced adoption among active teachers</li>
+                <li><span class="metrics__num">13% → 20%</span> — Practice mode adoption among active teachers</li>
+                <li><span class="metrics__num">20% → 22%</span> — Mastery Peak share of all sessions. On a separate denominator, first-time Mastery Peak use rose 20–30% among teachers who had never tried it</li>
+            </ul>
+
+            <p>Power users lost nothing. Time-to-host stayed flat through both iterations, and high-frequency teachers who knew exactly which mode they wanted kept their pace through the extra picker step. Mastery Peak usage sustained after first trial; opportunistic adoption became regular use.</p>
+
+            <p>The structural wins from iteration 1 also held. Anti-cheating and Gamification settled into use as horizontal capabilities. The bucketed IA scaled cleanly when capability designers added Reopen, Late Submission, and the dependency-aware Anti-Cheating Monitor sub-controls. The settings grammar — top-level toggles, subtitle-bearing toggles, parent/child hierarchies — worked across modes without modification.</p>
+
+            <p>The thing the metric doesn't show, and the thing I care about most: the IA we shipped is still <em>extensible</em>. New modes could be added without redesigning the page. New capabilities could slot into existing buckets: Late Submission, built into the structure after launch, reached 40% usage. The page wasn't designed for the nine modes that existed; it was designed for the eleventh, twelfth, thirteenth modes that would come later.</p>
+        </section>
+
+        <section id="problem" class="cs-section prose">
+            <h2>The problem</h2>
+
+            <h3 id="brief">The brief was wrong</h3>
+
+            <p>Half of new Wayground users dropped off at the game settings page. Of all users, ~25% only ever did async games. Only 6% ever migrated from async-only to live — but when they did, their game volume jumped 50%+. The setup page was a structural bottleneck for product discovery, not just a usability nuisance.</p>
+
+            <p>Three patterns were doing the damage.</p>
+
+            <h4>The mode hierarchy was engineering debris</h4>
+            <p>Wayground had nine modes — Practice, Classic, Accuracy, Teacher Paced, Mastery Peak, Test, Team, Paper, plus async/live splits — accumulated over years of feature additions. The naming reflected delivery variants and engine implementations, not how teachers thought about classrooms. A teacher trying to set up a "serious review with anti-cheating" had to know which combination of mode plus settings produced that experience. Most didn't.</p>
+
+            <h4>Capabilities were trapped inside modes</h4>
+            <p>Anti-cheating was bound to Test mode. Mastery goal lived only in Mastery Peak (live) and Accuracy (async). Gamification was scattered. A teacher who wanted "students to keep trying until they master this <em>and</em> not be able to cheat" couldn't compose those two desires. The system forced false binaries everywhere.</p>
+
+            <h4>The "Customise" button was an admission of failure</h4>
+            <p>The page surfaced 4-5 settings inline, then hid the rest behind a button labeled <em>Customise</em>. Teachers in usability testing said it directly: <em>"not knowing what lies inside customise is super unintuitive."</em> Anti-cheating — the most-explored unprompted setting in our research, requested by 6 of 8 teachers without prompting — was buried there. Every one of these issues traced back to the same root: the IA was a faithful rendering of how the backend organized session configuration, surfaced to teachers as if it were also their mental model.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/wayground-gs/01-before-old-settings-page.png" alt="The pre-redesign session setup page — three modes visible (six were hidden), critical settings buried behind Customise, anti-cheating scattered across modes and chip rows">
+            <figcaption class="cs-caption">The pre-redesign setup page. Three modes visible, six hidden; critical settings behind <em>Customise</em>; anti-cheating scattered across the chip row.</figcaption>
+        </figure>
+
+        <section id="provocation" class="cs-section prose">
+            <h3>The provocation</h3>
+
+            <p>The first thing I drew on a notebook page that week was the question that organized the whole project:</p>
+
+            <blockquote>
+                <p>Do we ever need modes?</p>
+            </blockquote>
+
+            <p>The nine modes weren't really nine distinct things. Practice and Classic were sibling modes — gamified-default, low-stakes — separated only by the async/live split. Accuracy and Mastery Peak were similar siblings, both mastery-focused. Test was the anti-cheating archetype across both delivery variants. Once you saw the modes as 3-4 behavioral archetypes wearing different costumes, the IA's whole foundation looked different. The modes weren't user concepts. They were engineering namespaces leaking through to the user.</p>
+
+            <p>That insight became the spine of every design decision that followed.</p>
+        </section>
+
+        <figure class="cs-image">
+            <svg viewBox="0 0 920 380" role="img" aria-label="The nine modes grouped into three behavioral archetypes across the async and live split, plus delivery variants">
+                <style>
+                    .d-head { font: 500 12px Geist, sans-serif; fill: #999; letter-spacing: 0.08em; }
+                    .d-label { font: 400 13px Geist, sans-serif; fill: #666; }
+                    .d-chip-text { font: 500 14px Geist, sans-serif; fill: #111; }
+                    .d-note { font: 400 13px Geist, sans-serif; fill: #999; }
+                    .d-chip { fill: #fafafa; stroke: #e5e5e5; }
+                </style>
+                <text class="d-head" x="490" y="44" text-anchor="middle">ASYNC</text>
+                <text class="d-head" x="730" y="44" text-anchor="middle">LIVE</text>
+
+                <text class="d-label" x="40" y="95">Low-stakes, gamified</text>
+                <rect class="d-chip" x="400" y="66" width="180" height="44" rx="6"/>
+                <text class="d-chip-text" x="490" y="93" text-anchor="middle">Practice</text>
+                <rect class="d-chip" x="640" y="66" width="180" height="44" rx="6"/>
+                <text class="d-chip-text" x="730" y="93" text-anchor="middle">Classic</text>
+
+                <text class="d-label" x="40" y="159">Mastery-focused</text>
+                <rect class="d-chip" x="400" y="130" width="180" height="44" rx="6"/>
+                <text class="d-chip-text" x="490" y="157" text-anchor="middle">Accuracy</text>
+                <rect class="d-chip" x="640" y="130" width="180" height="44" rx="6"/>
+                <text class="d-chip-text" x="730" y="157" text-anchor="middle">Mastery Peak</text>
+
+                <text class="d-label" x="40" y="223">Assessment, anti-cheating</text>
+                <rect class="d-chip" x="400" y="194" width="180" height="44" rx="6"/>
+                <text class="d-chip-text" x="490" y="221" text-anchor="middle">Test</text>
+                <rect class="d-chip" x="640" y="194" width="180" height="44" rx="6"/>
+                <text class="d-chip-text" x="730" y="221" text-anchor="middle">Test</text>
+
+                <line x1="40" y1="266" x2="880" y2="266" stroke="#f0f0f0" stroke-width="1"/>
+
+                <text class="d-label" x="40" y="315">Delivery variants</text>
+                <rect class="d-chip" x="400" y="286" width="160" height="44" rx="6"/>
+                <text class="d-chip-text" x="480" y="313" text-anchor="middle">Teacher Paced</text>
+                <rect class="d-chip" x="580" y="286" width="110" height="44" rx="6"/>
+                <text class="d-chip-text" x="635" y="313" text-anchor="middle">Team</text>
+                <rect class="d-chip" x="710" y="286" width="110" height="44" rx="6"/>
+                <text class="d-chip-text" x="765" y="313" text-anchor="middle">Paper</text>
+
+                <text class="d-note" x="40" y="362">Nine modes, three behavioral archetypes wearing different costumes.</text>
+            </svg>
+            <figcaption class="cs-caption">The orienting brainstorm, redrawn: the nine modes group into three behavioral archetypes across the async/live split.</figcaption>
+        </figure>
+
+        <figure class="cs-image">
+            <svg viewBox="0 0 920 190" role="img" aria-label="A spectrum between surfacing more settings for discovery and adding UX debt that loses teachers, with the target in the middle">
+                <style>
+                    .n-pole { font: 500 14px Geist, sans-serif; fill: #111; }
+                    .n-sub { font: 400 12px Geist, sans-serif; fill: #999; }
+                    .n-mid { font: 500 13px Geist, sans-serif; fill: #111; }
+                </style>
+                <text class="n-mid" x="460" y="52" text-anchor="middle">Thread the needle</text>
+                <line x1="60" y1="92" x2="860" y2="92" stroke="#e5e5e5" stroke-width="2"/>
+                <line x1="60" y1="84" x2="60" y2="100" stroke="#e5e5e5" stroke-width="2"/>
+                <line x1="860" y1="84" x2="860" y2="100" stroke="#e5e5e5" stroke-width="2"/>
+                <circle cx="460" cy="92" r="6" fill="#111"/>
+                <text class="n-pole" x="60" y="132">Surface more settings</text>
+                <text class="n-sub" x="60" y="154">Teachers discover what the product can do</text>
+                <text class="n-pole" x="860" y="132" text-anchor="end">Accumulate UX debt</text>
+                <text class="n-sub" x="860" y="154" text-anchor="end">Teachers get lost on the way</text>
+            </svg>
+            <figcaption class="cs-caption">Threading the needle between game settings and UX debt.</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <p>The honest framing for the project was on that same page: every existing setting had a constituency, every restructuring move had a cost. This was debt restructuring, not a fresh start — teachers had to discover the modes they were missing without getting lost on the way.</p>
+        </section>
+
+        <section id="research" class="cs-section prose">
+            <h2>Research &amp; discovery</h2>
+
+            <h3 id="methodology">A JTBD-led research scan</h3>
+
+            <p>Astha (UXR) and I structured the research around a single question: <em>can existing teachers complete session setup for their top jobs-to-be-done — successfully, seamlessly, and in alignment with what they actually intended?</em></p>
+
+            <p>We organized everything around nine teaching JTBDs (Topic Reviews, Independent Practice, Review Quiz, Warm-up, Review Lessons, Intro at P0; Unit Tests, Homework at P1; Instruction, Guided Practice at P2). Each JTBD had explicit success criteria mapped to capabilities — anti-cheating, mastery, gamification, accommodations.</p>
+
+            <p>Three streams ran in parallel:</p>
+
+            <ul>
+                <li><strong>Twenty usability-testing calls</strong> across high-frequency, medium-frequency, and low-frequency teacher segments. Each P0 JTBD tested by 4 teachers. The bad-points column from those calls became the design backlog.</li>
+                <li><strong>Internal dogfooding</strong> with the Game Settings pod and twelve non-pod members across PM, design, analytics, and engineering. Same JTBD prompts. Different lens.</li>
+                <li><strong>Hotjar session reviews</strong> of real production traffic — split by month and live/async, owned by different team members. I owned May Live recordings. Watching teachers fail in production is a different kind of evidence than asking them to try in a UT.</li>
+            </ul>
+
+            <p>In parallel, I built a demand inventory off the Wayground feedback page — 30+ teacher feature requests, categorized into pre-delivery / delivery / post-delivery / anti-cheating / class-management / student-experience / content / library, then graded on Reach × Impact × Solution Confidence × Effort. This was capability taxonomy more than screen design. I did it because the IA decisions about what to surface, what to demote, and what to add later needed an evidence base, not designer intuition.</p>
+
+            <p>Before drawing any screens, I mapped the surrounding context: the classroom variables (noisy, distracted, teacher needs a quick start), the behavioral telemetry questions (how often is mode chosen, which settings get changed, what's customised in focus mode), and the structural questions (the live/async split, modular profiles, mid-session edits). That context scan is what kept the later IA decisions grounded in the classroom rather than the config schema.</p>
+        </section>
+
+        <figure class="cs-image">
+            <svg viewBox="0 0 920 250" role="img" aria-label="The pre-design context scan across three areas: classroom context, behavioral telemetry, and structural questions">
+                <style>
+                    .c-card { fill: #fff; stroke: #e5e5e5; }
+                    .c-title { font: 600 14px Geist, sans-serif; fill: #111; }
+                    .c-item { font: 400 13px Geist, sans-serif; fill: #666; }
+                    .c-tick { stroke: #d4d4d4; stroke-width: 2; }
+                </style>
+                <rect class="c-card" x="40" y="40" width="260" height="170" rx="8"/>
+                <text class="c-title" x="60" y="76">Classroom context</text>
+                <line class="c-tick" x1="60" y1="103" x2="68" y2="103"/><text class="c-item" x="78" y="108">Noisy, distracted rooms</text>
+                <line class="c-tick" x1="60" y1="133" x2="68" y2="133"/><text class="c-item" x="78" y="138">Teachers need a quick start</text>
+                <line class="c-tick" x1="60" y1="163" x2="68" y2="163"/><text class="c-item" x="78" y="168">Dead time while students join</text>
+
+                <rect class="c-card" x="330" y="40" width="260" height="170" rx="8"/>
+                <text class="c-title" x="350" y="76">Behavioral telemetry</text>
+                <line class="c-tick" x1="350" y1="103" x2="358" y2="103"/><text class="c-item" x="368" y="108">Frequency of mode choice</text>
+                <line class="c-tick" x1="350" y1="133" x2="358" y2="133"/><text class="c-item" x="368" y="138">Settings most often changed</text>
+                <line class="c-tick" x1="350" y1="163" x2="358" y2="163"/><text class="c-item" x="368" y="168">Customisations in Focus Mode</text>
+
+                <rect class="c-card" x="620" y="40" width="260" height="170" rx="8"/>
+                <text class="c-title" x="640" y="76">Structural questions</text>
+                <line class="c-tick" x1="640" y1="103" x2="648" y2="103"/><text class="c-item" x="658" y="108">The live / async split</text>
+                <line class="c-tick" x1="640" y1="133" x2="648" y2="133"/><text class="c-item" x="658" y="138">Modular settings profiles</text>
+                <line class="c-tick" x1="640" y1="163" x2="648" y2="163"/><text class="c-item" x="658" y="168">Mid-session edits</text>
+            </svg>
+            <figcaption class="cs-caption">The pre-design context scan.</figcaption>
+        </figure>
+
+        <section id="principles" class="cs-section prose">
+            <h3>Four UX principles, evolved</h3>
+
+            <p>Three were already in my notebook from the first week — speed, defaults, course-correct. Two more emerged from what we saw in research. The final set of four:</p>
+
+            <ol>
+                <li><strong>Have a clear connection between setup and classroom consequence.</strong> Cathy's UT quote crystallized it: <em>"Shuffle questions — what does this mean for my class?"</em> Teachers were configuring without understanding what they were configuring.</li>
+                <li><strong>Defaults should ensure GOOD out of the box, customization makes it GREAT.</strong> Teachers don't have time to discover settings, and their perception of tool capability calcifies on first contact.</li>
+                <li><strong>Yes and, not either or.</strong> Mode-coupled capabilities forced false binaries — anti-cheating in Test mode <em>or</em> mastery in Mastery Peak. Teachers wanted both. The mode-archetype analysis demanded this principle.</li>
+                <li><strong>Teachers should be able to course-correct at any time.</strong> Hotjar showed teachers stuck mid-setup, abandoning, retrying. The system needed to forgive mistakes.</li>
+            </ol>
+
+            <p>Two of the four came directly from research, not designer intuition. That distinction matters: principles aren't divinely received. They evolve as the team learns what's actually broken.</p>
+        </section>
+
+        <figure class="cs-image">
+            <svg viewBox="0 0 920 210" role="img" aria-label="The early three UX principles: speed, defaults, and course-correct">
+                <style>
+                    .p-card { fill: #fff; stroke: #e5e5e5; }
+                    .p-num { font: 600 26px Geist, sans-serif; fill: #d4d4d4; }
+                    .p-title { font: 600 15px Geist, sans-serif; fill: #111; }
+                    .p-sub { font: 400 13px Geist, sans-serif; fill: #666; }
+                </style>
+                <rect class="p-card" x="40" y="30" width="260" height="150" rx="8"/>
+                <text class="p-num" x="60" y="72">1</text>
+                <text class="p-title" x="60" y="106">Speed</text>
+                <text class="p-sub" x="60" y="132">Teacher time and clicks</text>
+                <text class="p-sub" x="60" y="152">are paramount</text>
+
+                <rect class="p-card" x="330" y="30" width="260" height="150" rx="8"/>
+                <text class="p-num" x="350" y="72">2</text>
+                <text class="p-title" x="350" y="106">Defaults</text>
+                <text class="p-sub" x="350" y="132">Good out of the box,</text>
+                <text class="p-sub" x="350" y="152">great when customised</text>
+
+                <rect class="p-card" x="620" y="30" width="260" height="150" rx="8"/>
+                <text class="p-num" x="640" y="72">3</text>
+                <text class="p-title" x="640" y="106">Course-correct</text>
+                <text class="p-sub" x="640" y="132">Teachers can edit</text>
+                <text class="p-sub" x="640" y="152">at any time</text>
+            </svg>
+            <figcaption class="cs-caption">The early three: speed, defaults, course-correct.</figcaption>
+        </figure>
+
+        <figure class="cs-image">
+            <svg viewBox="0 0 920 330" role="img" aria-label="Three design axes with the shipped state marked near the middle of each: clarity from pre-setup to real-time, accessibility from power user to new user, safeguard from system control to teacher freedom">
+                <style>
+                    .a-title { font: 600 13px Geist, sans-serif; fill: #111; }
+                    .a-end { font: 400 13px Geist, sans-serif; fill: #666; }
+                    .a-legend { font: 400 12px Geist, sans-serif; fill: #999; }
+                    .a-line { stroke: #e5e5e5; stroke-width: 2; }
+                </style>
+                <text class="a-title" x="40" y="46">Clarity</text>
+                <text class="a-end" x="230" y="76" text-anchor="end">Pre-setup</text>
+                <line class="a-line" x1="250" y1="72" x2="670" y2="72"/>
+                <line class="a-line" x1="250" y1="64" x2="250" y2="80"/>
+                <line class="a-line" x1="670" y1="64" x2="670" y2="80"/>
+                <circle cx="460" cy="72" r="6" fill="#111"/>
+                <text class="a-end" x="690" y="76">Real-time</text>
+
+                <text class="a-title" x="40" y="136">Accessibility</text>
+                <text class="a-end" x="230" y="166" text-anchor="end">Power user</text>
+                <line class="a-line" x1="250" y1="162" x2="670" y2="162"/>
+                <line class="a-line" x1="250" y1="154" x2="250" y2="170"/>
+                <line class="a-line" x1="670" y1="154" x2="670" y2="170"/>
+                <circle cx="460" cy="162" r="6" fill="#111"/>
+                <text class="a-end" x="690" y="166">New user</text>
+
+                <text class="a-title" x="40" y="226">Safeguard</text>
+                <text class="a-end" x="230" y="256" text-anchor="end">System control</text>
+                <line class="a-line" x1="250" y1="252" x2="670" y2="252"/>
+                <line class="a-line" x1="250" y1="244" x2="250" y2="260"/>
+                <line class="a-line" x1="670" y1="244" x2="670" y2="260"/>
+                <circle cx="460" cy="252" r="6" fill="#111"/>
+                <text class="a-end" x="690" y="256">Teacher freedom</text>
+
+                <circle cx="46" cy="298" r="5" fill="#111"/>
+                <text class="a-legend" x="60" y="303">Where we shipped, the empirically validated middle</text>
+            </svg>
+            <figcaption class="cs-caption">The three design axes: clarity, accessibility, safeguard.</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <p>The design space had three axes: clarity (pre-setup vs real-time), accessibility (power user vs new user), and safeguard (system control vs teacher freedom). The state we shipped landed near the empirically-validated middle of all three.</p>
+        </section>
+
+        <section id="approaches" class="cs-section prose">
+            <h2>Approaches</h2>
+
+            <h3 id="four-approaches">Four approaches as design space, not UI variations</h3>
+
+            <p>Most "we explored multiple directions" sentences in case studies mean three Figma variations of the same idea with different colors. I wanted us to test four <em>philosophical</em> positions on what was actually broken — because the answer to "what should this page be?" depends on which problem you think is primary.</p>
+
+            <h4>Approach 1 — Pedagogical default as a child inside mode + live preview</h4>
+            <p>Treat each mode as a container for a pedagogical configuration. Show teachers the actual student-facing UI as they configure. <strong>Bet:</strong> teachers will become more deliberate if shown consequence. <strong>Risk:</strong> most engineering, slowest setup.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/wayground-gs/03a-approach-1-two-step.png" alt="Approach 1 prototype — two-step setup with pre-mode horizontals on the left and mode-specific settings with preview on the right">
+            <figcaption class="cs-caption">Approach 1 — two-step with mode preview.</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <h4>Approach 2 — Rename modes pedagogically</h4>
+            <p>Replace "Classic / Test / Mastery Peak / Team / Teacher Paced" with "Individual Work / Teacher Paced / Competition." Each mode card carries a "feels like" line and a "good for" line. <strong>Bet:</strong> the mode names themselves are the bottleneck. <strong>Risk:</strong> breaks power-user mental models built over years.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/wayground-gs/03b-approach-2-intent-split.png" alt="Approach 2 prototype — entire setup split by teaching intent with teacher-paced and student-paced CTAs">
+            <figcaption class="cs-caption">Approach 2 — intent-led entry.</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <h4>Approach 3 — Infer intent from content and title</h4>
+            <p>If the resource is titled "Topic Review" and has 20 multiple-choice questions, the system pre-configures gamification on, anti-cheating off, and the teacher confirms. <strong>Bet:</strong> content metadata can drive setup. <strong>Risk:</strong> teacher-generated titles are wildly variable. Bad inference poisons trust.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/wayground-gs/03c-approach-3-recommend.png" alt="Approach 3 prototype — Mastery Peak shown as Recommended with explanatory subtitle">
+            <figcaption class="cs-caption">Approach 3 — recommend a mode based on content.</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <h4>Approach 4 — Single CTA, quick-start templates</h4>
+            <p>The setup page itself is the friction. Replace it with named scenario templates ("Topic Review Serious," "Practice Fun") that bypass configuration entirely. <strong>Bet:</strong> the most opinionated defaults possible. <strong>Risk:</strong> templates can't cover every JTBD.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/wayground-gs/03d-approach-4-skip-setup.png" alt="Approach 4 prototype — skip the setup page entirely; mode strip and CTAs on the activity detail page">
+            <figcaption class="cs-caption">Approach 4 — radical reduction.</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <p>The testing revealed something I didn't expect: <strong>no single approach was right.</strong> Each had a piece worth keeping and a bet worth refusing. The synthesis we landed on borrowed from three of the four:</p>
+
+            <ul>
+                <li>From Approach 1 — the bucketed IA. Anti-cheating, Mastery, Gamification as <em>capabilities</em>, not mode-bound features.</li>
+                <li>From Approach 2 — pedagogical framing, but moved <em>upstream</em> of mode selection (the "Student paced / Teacher led" decision before mode names appear).</li>
+                <li>From Approach 3 — smart per-mode defaults, but without the ML inference. The system knew what each mode's pedagogical center of gravity was — Mastery goal for Mastery Peak, Session attempts for Classic.</li>
+            </ul>
+
+            <p>The radical bets — collapsing nine modes into three pedagogical archetypes, the template-replaces-setup model — got left on the table. They were the most ambitious; they would have been the most disruptive to power users; the conservative synthesis served the median teacher better.</p>
+        </section>
+
+        <section id="competition" class="cs-section prose">
+            <h3>Why we couldn't copy our competitors</h3>
+
+            <p>The obvious question at this point in any redesign is: what does the rest of the category do? We mapped the competitive landscape — Kahoot, Blooket, Pear Deck, Pear Assessment — to find out whether someone had already solved the problem we were stuck on. They hadn't, but the reasons why turned out to be useful in their own right.</p>
+
+            <h4>Kahoot — defer to the lobby</h4>
+            <p>Lightweight, lobby-first model. Pick a kahoot, click Host live, choose a mode (Classic, Team, Accuracy, Student-led), then configure during the lobby phase via a gear icon — autoplay, timer, name generator, 2-Step Join, lock joining. Modes are 4-5, not 9. Anti-cheating is essentially one toggle. Mastery isn't a first-class concept. The IA works because the complexity surface is small enough to defer most decisions until students are already joining.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/wayground-gs/kahoot-game-settings.png" alt="Kahoot's game settings — mode picker and lobby-phase gear settings">
+            <figcaption class="cs-caption">Kahoot — settings deferred to the lobby gear.</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <h4>Blooket — mode identity is the product</h4>
+            <p>12+ distinct live modes (Tower Defense, Gold Quest, Battle Royale, Crypto Hack, Cafe, Factory) each with bespoke settings. There's no horizontal capability layer at all — no anti-cheating bucket, no mastery bucket. Each mode is its own little universe. The IA works because Blooket leans into mode identity as <em>the</em> primary axis. The modes aren't engineering debris; they're the product.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/wayground-gs/blooket-game-settings.jpeg" alt="Blooket's game settings — a grid of distinct live modes, each its own universe">
+            <figcaption class="cs-caption">Blooket — every mode its own universe, no horizontal layer.</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <h4>Pear Deck / Pear Assessment — reduce to a binary</h4>
+            <p>Pear Deck reduces the modal decision to Instructor-Paced vs Student-Paced, with the option to switch mid-session. Pear Assessment adds proctoring layers (browser lockdown, dynamic passwords, accommodations) but the setup surface is comparatively flat. Both products work because they've kept modal complexity small.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/wayground-gs/pear-deck-settings.jpeg" alt="Pear Deck's session menu — Start Lesson button with a short list of flat settings such as Require Student Logins">
+            <figcaption class="cs-caption">Pear Deck — a flat setup surface with a handful of settings.</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <p>The pattern: <strong>each competitor's IA works because their complexity surface fits their model.</strong> Kahoot's gear-in-lobby works because there are six settings that matter. Blooket's no-horizontals works because mode identity is the product. Pear Deck's binary works because the binary is the truth of the product.</p>
+
+            <p>Wayground had nine modes, three resource types (assessment, lesson, interactive video, passage, flashcards), live and async splits, and capability layers that genuinely needed to operate horizontally — anti-cheating that mattered in Test mode <em>and</em> Homework, mastery goals that mattered in Practice <em>and</em> Review. Borrowing Kahoot's pattern would have hidden critical settings behind a gear icon teachers wouldn't find. Borrowing Blooket's pattern would have killed the horizontal-capabilities insight that drove our entire IA. Borrowing Pear Deck's binary would have flattened genuine pedagogical differences.</p>
+
+            <p>The conclusion: <em>none of the existing patterns scaled to our complexity</em>. We needed a different IA — one that respected horizontal capabilities <em>and</em> preserved mode identity <em>and</em> deferred granular settings without hiding them. Not because we thought we were cleverer than Kahoot or Blooket. Because we had a different problem, and the existing patterns didn't fit it.</p>
+        </section>
+
+        <section id="iteration-one" class="cs-section prose">
+            <h2>Iteration 1: the bucketed IA</h2>
+
+            <p>What shipped in late summer 2025:</p>
+
+            <h4>Five horizontal capability buckets</h4>
+            <p>Assignment Details, General, Mastery, Anti-cheating, Gamification (plus Video for Interactive Video resources). Each visible inline. Anti-cheating and gamification could now be configured <em>across every mode</em>, not just Test or Classic. The launch banner said it explicitly: <em>"Now available for all game modes: modify anti-cheating and gamification features."</em></p>
+
+            <h4>A settings grammar</h4>
+            <p>Top-level toggles for independent capabilities. Toggles with explanatory subtitles for settings that needed consequence framing. Parent toggles with indented child controls for capabilities with sub-features (Anti-cheating Monitor as parent; Disable right-click and Disable copy-paste as children). The dependency relationships became visible in the layout itself, not buried in disabled-state messages.</p>
+
+            <h4>Eight UT-driven copy and placement decisions</h4>
+            <p>"Use Wayground Generated Names" → "Anonymize Student Names." "Focus Mode" → "Anti-Cheating Monitor." "Show Answers During Session" reassigned from Anti-cheating to Mastery on dependency logic. Strike &amp; Shield demoted into Gamification. Question Timer given three explicit states, addressing 220+ teacher requests for genuine timer enforcement.</p>
+
+            <h4>Dependency toasts with course-correction</h4>
+            <p>When toggling AI Answer Explanations turned off three dependent settings, the system showed a toast — <em>"This has turned off: Show answer after each question, AI answer explanation, Question timer — Undo."</em> Principle 4 (course-correct any time) rendered as a button.</p>
+
+            <p>I owned the IA, the settings grammar, and the page-level layout decisions. Natasha owned Reopen flows. Aayush owned Late Submission. The capability designers built features into the structure I'd defined.</p>
+
+            <p>I'd also proposed visual theming for the mode picker as part of iteration 1 — each mode getting its own color world and illustration. Engineering deprioritized it for scope. We shipped without it.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/wayground-gs/game-settings-iterations.png" alt="Iterations of the bucketed IA and settings grammar over time — explorations of how to visually distinguish each setting">
+            <figcaption class="cs-caption">Iterations of buckets and settings grammar over time. I looked at how to distinguish each setting visually, and settled in the end on a more refined visual identity.</figcaption>
+        </figure>
+
+        <figure class="cs-image">
+            <img src="images/wayground-gs/04-iteration-1-shipped.png" alt="Iteration 1 shipped state — bucketed IA on a single setup page with mode carousel at top and all settings inline below in named buckets (General, Mastery, Anti-cheating, Gamification, Video)">
+            <figcaption class="cs-caption">Iteration 1 — bucketed IA, settings grammar, mode carousel at top; theming still deprioritized.</figcaption>
+        </figure>
+
+        <section id="regression" class="cs-section prose">
+            <h2>The regression</h2>
+
+            <p>Iteration 1 went live. The structural wins held — anti-cheating got configured more often, settings adoption broadened, the help docs got rewritten around the new bucket names. But within weeks, post-launch UT and behavioral signal surfaced something we hadn't predicted.</p>
+
+            <p><strong>Teachers were reverting to Classic.</strong> Specifically: teachers who'd previously used Mastery Peak in production were quietly switching back to Classic on the new page. First-time use of non-Classic modes was lower than we expected. The IA was correct. The behavior was wrong.</p>
+
+            <p>Astha laid out five hypotheses, in priority order:</p>
+
+            <ol>
+                <li><strong>Mode persistence is unclear.</strong> Teachers picked Mastery Peak on the modal, landed on a setup page where Classic visually dominated the carousel, and lost confidence their choice had stuck. The selected-mode checkmark was too subtle.</li>
+                <li><strong>Double selection causes doubt.</strong> Picking on the first modal felt final; seeing "Select a mode" again on the setup page felt like the system was asking again. Uncertainty pushed teachers to the familiar.</li>
+                <li><strong>Lack of best-use guidance.</strong> No "best for" language to help teachers commit to non-Classic modes.</li>
+                <li><strong>Back navigation friction.</strong> Back from setup landed on the Activity Page, not the mode picker. Discouraged exploration.</li>
+                <li><strong>Feature availability confusion.</strong> Teachers didn't know which features (leaderboard, etc.) existed in non-Classic modes.</li>
+            </ol>
+
+            <p>The diagnosis was sharp. The IA wasn't the bug. <strong>The bug was teacher confidence.</strong> The new structure had broken a quiet contract teachers had with the old design — when you pick a mode, the page should make you certain you're inside it. Iteration 1 didn't. This was the work most projects skip: watching after the first ship and treating a contradiction of the principles as data, not noise.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/wayground-gs/05-astha-hypotheses.png" alt="Astha's Slack message laying out five hypotheses about why teachers were reverting to Classic mode after iteration 1 launch">
+            <figcaption class="cs-caption">Astha's post-launch diagnosis — five hypotheses, in priority order, drawn from UT and behavioral data.</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <h3>Three radical fixes I considered and discarded</h3>
+
+            <p>Before settling on the conservative fix, I explored three more aggressive directions.</p>
+
+            <h4>Discard 1 — JTBD-named buckets</h4>
+            <p>Replace "Anti-cheating / Mastery / Gamification" with imperative pedagogical sentences: "Students don't cheat" / "Students work to mastery" / "Keep your students motivated" / "Get insights on students." Each setting showed its current state inline as a green-check or red-X. I rejected it because the imperative-sentence grammar was unusual UI, and the dashboard-status indicators conflicted with the actual task — teachers were there to <em>configure</em>, not audit.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/wayground-gs/07a-discard-jtbd-buckets.png" alt="Discarded direction 1 — JTBD-named buckets like 'Keep your students motivated' and 'Students don't cheat' with quick-default templates above">
+            <figcaption class="cs-caption">Discard 1 — pedagogical bucket names as IA.</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <h4>Discard 2 — Three pedagogical archetypes</h4>
+            <p>Collapse nine modes into "Practice and mastery / Testing / Build your own mode." Most aggressive break with the existing power-user model. Rejected because "Build your own" was an admission the three-card collapse couldn't cover all teaching scenarios — which would have split user behavior in unhealthy ways and broken Mastery Peak's brand recognition for teachers who'd built habits around it.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/wayground-gs/07b-discard-three-archetypes.png" alt="Discarded direction 2 — three pedagogical archetypes (Practice and mastery, Testing, Build your own mode) replacing nine existing modes">
+            <figcaption class="cs-caption">Discard 2 — three pedagogical archetypes, the most aggressive collapse.</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <h4>Discard 3 — Side-by-side layout</h4>
+            <p>Two columns — pre-mode horizontals on the left, mode-and-mode-specific-settings on the right. Rejected because the columns scaled differently in height, the mode card lost visual primacy over the settings underneath, and the two-dimensional scanning required was harder than the original problem.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/wayground-gs/07c-discard-side-by-side.png" alt="Discarded direction 3 — side-by-side layout with horizontal session settings on the left and mode picker plus mode-specific settings on the right">
+            <figcaption class="cs-caption">Discard 3 — side-by-side layout.</figcaption>
+        </figure>
+
+        <section id="iteration-two" class="cs-section prose">
+            <h2>Iteration 2: theming as wayfinding</h2>
+
+            <p>The fix, when we landed on it, was the idea I'd proposed during iteration 1 and seen deprioritized: <strong>each mode gets its own visual world.</strong></p>
+
+            <p>The mode picker became a dedicated screen. Classic in maroon and pink with a leaderboard tile. Mastery Peak in teal with a mountain. Test Mode in dark indigo with a test-taker scene. Team Mode in crimson with versus-flag iconography. Mastery Peak got a "Students love this" recommendation badge — a lightweight social-proof surface that did what Approach 3's content-inference idea was reaching for, but without the ML.</p>
+
+            <p>Each setup page <em>inherited</em> its mode's theme. Mastery Peak's setup page was teal end-to-end, with the mountain illustration in the background. Classic's was maroon. The mode breadcrumb at the top showed all five modes with the current one highlighted. <em>You couldn't doubt you were inside Mastery Peak when the entire page was teal with a mountain in the background.</em></p>
+
+            <p>The reference for this was video games. Fortnite changes the entire UI palette per mode. Halo changes the menu wallpaper per playlist. The principle is <em>you are inside a mode and the world around you reflects that.</em> Most B2B SaaS treats themes as cosmetic and modes as state flags. We used theming as IA — the visual language doing the wayfinding work that breadcrumbs and headers couldn't do alone.</p>
+
+            <p>Astha drove the prioritization call on which hypotheses to address. The themed mode picker addressed #1 (mode persistence) and #2 (double-selection doubt) directly. #3 (best-use guidance) got partially addressed by the badge and the mode-card descriptions. #4 and #5 got parked.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/wayground-gs/06-iteration-2-mode-picker.png" alt="Iteration 2 mode picker — four large themed cards (Classic in maroon, Mastery Peak in teal, Test mode in lavender, Team mode in light blue), each with its own color world and illustration; Mastery Peak carries a 'Students love this' badge">
+            <figcaption class="cs-caption">Each mode gets its own visual world — the card you click is the room you enter.</figcaption>
+        </figure>
+
+        <figure class="cs-image">
+            <video src="images/wayground-gs/wayground-immersive-interaction.mp4" autoplay muted loop playsinline controls aria-label="Motion study of the themed immersive mode worlds — proof of concept"></video>
+            <figcaption class="cs-caption">Five themed worlds, one IA scaffold. A motion study I made as proof of concept for the immersive mode worlds.</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <p>The settings grammar underneath the themes never changed — primary surface, four-bucket sub-nav, parent/child toggle hierarchy — identical across all five modes. The theme did the wayfinding; the scaffold did the configuring.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/wayground-gs/mastery-peak-prod.png" alt="The Mastery Peak setup page in production after iteration 2 — themed page inherited from the mode picker, with primary settings and bucket sub-nav">
+            <figcaption class="cs-caption">The Mastery Peak setup page after iteration 2 — teal theme inherited from the mode picker.</figcaption>
+        </figure>
+
+        <section id="learnings" class="cs-section prose">
+            <h2>What I'd take from this</h2>
+
+            <h4>Correct design and adopted design are different problems</h4>
+            <p>Iteration 1 was structurally correct — every research insight, every principle, every UT finding pointed at the bucketed IA. It also caused a measurable behavioral regression. The gap between <em>correct</em> and <em>adopted</em> is where senior IC work actually lives. The discipline is to keep watching after launch and respond to the data even when it contradicts the principles.</p>
+
+            <h4>Theming can do IA's job</h4>
+            <p>I'd been treating per-mode theming as a design-system flourish — "we made it cute." Iteration 1's regression taught me theming is a wayfinding system. When teachers couldn't trust that mode persistence had carried through to setup, the fix wasn't a bigger checkmark or a clearer breadcrumb. It was making the entire visual environment carry the mode identity, the way Fortnite or Halo does. The B2B SaaS default is to treat themes as cosmetic and modes as state flags. That default leaves wayfinding work undone.</p>
+
+            <h4>Synthesis is harder than commitment</h4>
+            <p>The most ambitious approaches I tested — mode renames, template-replaces-setup — would have made the louder case study. None of them shipped. The work that shipped was a synthesis that took the structurally durable wins from each approach and rejected the radical bets that would have destroyed power-user behavior or required engineering investments we couldn't justify. Senior design isn't picking the boldest option. It's editing your own ambition against constraints you didn't get to choose.</p>
+
+            <h4>The unsolved problem</h4>
+            <p>First-time-user education is still broken. A teacher who's never seen Mastery Peak doesn't get a walkthrough — and we deliberately didn't build one. Teachers onboard heterogeneously: some try at home, some try in professional development sessions before class, some YOLO it directly in front of 30 students. A walkthrough that interrupts the YOLO path would have been actively harmful for that segment. The right answer is probably <em>contextual</em> education — surfaced only when telemetry suggests a teacher is mid-classroom and stuck — but we didn't have the engineering bandwidth to build that. It's the work I would have prioritized next.</p>
+
+            <h4>I owned the IA. I didn't own the synthesis alone.</h4>
+            <p>Astha (UXR) named the post-launch regression and prioritized the hypothesis order. Natasha and Aayush built capability features into the structure. Engineering deprioritized theming the first time and shipped it the second. The PM made the call on JTBD prioritization. The designer doesn't own those decisions. What I owned was the IA scaffolding, the settings grammar, the principles framework, and the visual decisions that made theming work as wayfinding. That's the right scope for "I led this." Anything more would be over-claiming.</p>
+        </section>
+
+        </article>
+<nav class="cs-nav">
+            <a href="work.html">← Back to work</a>
+            <a href="wayground-usage-analytics.html">Next project →</a>
+        </nav>
+
+        </main>
+
+        <footer class="footer">
+            &copy; 2026 Chandra Ramanujan
+        </footer>
+    </div>
+    <script src="lightbox.js" defer></script>
+</body>
+</html>

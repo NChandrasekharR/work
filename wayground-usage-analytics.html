@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usage analytics dashboard — Chandra Ramanujan</title>
+    <meta name="description" content="Scaling Wayground customer success from manual email reports to self-service admin dashboards — user research, code prototyping to unblock engineering, and designing around a Cassandra data constraint.">
+    <!-- Social / Open Graph. Base URL = the single BASE constant; change it in one place to re-point. -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Chandra Ramanujan">
+    <meta property="og:title" content="Usage analytics dashboard — Chandra Ramanujan">
+    <meta property="og:description" content="Scaling Wayground customer success from manual email reports to self-service admin dashboards — user research, code prototyping to unblock engineering, and designing around a Cassandra data constraint.">
+    <meta property="og:url" content="https://chandraramanujan.com/wayground-usage-analytics.html">
+    <meta property="og:image" content="https://chandraramanujan.com/images/og/wayground-usage-analytics.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Usage analytics dashboard — Chandra Ramanujan">
+    <meta name="twitter:description" content="Scaling Wayground customer success from manual email reports to self-service admin dashboards — user research, code prototyping to unblock engineering, and designing around a Cassandra data constraint.">
+    <meta name="twitter:image" content="https://chandraramanujan.com/images/og/wayground-usage-analytics.png">
+    <link rel="canonical" href="https://chandraramanujan.com/wayground-usage-analytics.html">
+    <link rel="icon" type="image/png" href="images/profile.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Chandra Ramanujan — Essays" href="/rss.xml">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "headline": "Usage analytics dashboard",
+        "name": "Usage analytics dashboard",
+        "description": "Scaling Wayground customer success from manual email reports to self-service admin dashboards — user research, code prototyping to unblock engineering, and designing around a Cassandra data constraint.",
+        "url": "https://chandraramanujan.com/wayground-usage-analytics.html",
+        "image": "https://chandraramanujan.com/images/og/wayground-usage-analytics.png",
+        "datePublished": "2025",
+        "inLanguage": "en",
+        "author": {
+            "@type": "Person",
+            "@id": "https://chandraramanujan.com/about.html#person",
+            "name": "Chandra Ramanujan",
+            "url": "https://chandraramanujan.com/about.html"
+        },
+        "publisher": {
+            "@type": "Person",
+            "@id": "https://chandraramanujan.com/about.html#person",
+            "name": "Chandra Ramanujan"
+        },
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Chandra Ramanujan",
+            "url": "https://chandraramanujan.com/"
+        },
+        "about": "Product design case study"
+    }
+    </script>
+</head>
+<body>
+    <div class="container page">
+        <nav class="nav">
+            <a href="index.html" class="nav__brand">Chandra Ramanujan</a>
+            <div class="nav__links">
+                <a href="work.html" class="is-active">Work</a>
+                <a href="side-projects.html">Side Projects</a>
+                <a href="writing.html">Writing</a>
+                <a href="in-the-news.html">News</a>
+                <a href="about.html">About</a>
+                <a href="https://drive.google.com/file/d/1lJdautAZvmx8DzGwb9-IBwlpT_G-Kq8b/view" target="_blank" rel="noopener">Resume</a>
+            </div>
+        </nav>
+        <main>
+        <article>
+
+        <header class="cs-header">
+            <h1>Usage analytics dashboard</h1>
+            <p class="cs-header__subtitle">Scaling customer success from manual reports to self-service dashboards</p>
+            <p class="cs-header__meta">Product Designer · 2025 · PM, Customer Success, Data, Engineering</p>
+        </header>
+
+        <nav class="cs-toc" aria-label="Contents">
+            <a href="#overview">Overview</a>
+            <a href="#problem">Problem statement</a>
+            <a href="#discovery">Discovery &amp; research</a>
+            <a href="#hmw">HMW &amp; UX principles</a>
+            <a href="#ia">Information architecture</a>
+            <a href="#prototype">Code prototyping</a>
+            <a href="#charting">Charting components</a>
+            <a href="#testing">User testing</a>
+            <a href="#iteration">Iteration &amp; details</a>
+            <a href="#final">Final design</a>
+            <a href="#reflection">Impact &amp; reflection</a>
+        </nav>
+
+        <section id="overview" class="cs-section prose">
+            <h2>Overview</h2>
+            <p>To unlock the next level of sales, Wayground had to transition from an individual teacher product to a robust enterprise solution for large schools and districts. This was one of two projects that defined that enterprise strategy - the companion being <a href="wayground-content-moderation.html">content moderation</a>. Here, the scalability problem was different: our customer success team was drowning in manual reporting requests, and the fix was about enabling stakeholders rather than fighting them.</p>
+            <p>Led end-to-end process from user research to interactive prototyping. Unblocked engineering by creating code prototypes, designed reusable charting components as part of design system.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/Usage analytics hero.png" alt="Usage Analytics Dashboard">
+        </figure>
+
+        <section id="problem" class="cs-section prose">
+            <h3>Problem statement</h3>
+            <p>Wayground customer success team was burnt out. From 2022, we had pivoted from targeting individual teachers to selling as a package to schools and districts. Customer success team did a lot of tedious, manual work to pull and prepare reports and analytics of usage/adoption for the large school and district customers. These were sent via email.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/UA-report-email.png" alt="Manual email reports sent by customer success">
+        </figure>
+
+        <section class="cs-section prose">
+            <p>This model was no longer scalable. Each CS rep had a few dozen schools and districts they were managing. Dealing with ad hoc requests meant they were overloaded and had a slow turnaround time.</p>
+            <p>Our largest customers were threatening not to renew. They were unhappy with the turnaround time to get the data and there were data pipeline/reliability issues meaning that they could get inconsistent data month on month.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/UA-painpoint.png" alt="Customer pain points with manual reporting">
+        </figure>
+
+        <section id="discovery" class="cs-section prose">
+            <h3>Discovery &amp; research</h3>
+            <p>CS was overloaded and came to us. PM, CS and Designer (me) sat together to aggregate the feedback from different customer conversations and start discovery.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/UA-aggregated-data.png" alt="Aggregated feedback from customer conversations">
+        </figure>
+
+        <section class="cs-section prose">
+            <h4>Personas from user calls</h4>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/UA-personas.png" alt="User personas from customer calls">
+        </figure>
+
+        <section class="cs-section prose">
+            <h4>Key user scenarios</h4>
+            <h4>Renewal</h4>
+            <p>"I see 40% of teachers at pilot school actively using Wayground in the trial period. Comparing against similar rollouts, this indicates good adoption. I approve renewing it for the entire school year."</p>
+            <h4>Adoption</h4>
+            <p>"I want to understand if using Wayground is having any impact or not. Hmm, teachers are using it, that is a good sign. Although not used by many departments, it's good that it's useful for Maths and English…"</p>
+            <h4>Comparing tools</h4>
+            <p>"I see Wayground has a video format like [competitor]. Although only 500 teachers use it while 2000 teachers use [competitor]. Maybe I can try to increase Wayground adoption and if it works well we can stop paying for [competitor]."</p>
+
+            <h3 id="hmw">HMW &amp; UX principles</h3>
+            <p>Conducted a workshop with CS, Data Team and Product to scope out the most needed features, and reviewed competitors.</p>
+
+            <h4>For admins</h4>
+            <p>HMW create an analytics experience that doesn't just display data but actively <strong>helps administrators make better decisions about implementation, training, and renewal.</strong></p>
+
+            <h4>For CSMs</h4>
+            <p>HMW help CSMs focus more on relationship building than data prep. <strong>Hit the streets, not the spreadsheets.</strong></p>
+
+            <h4>UX principles</h4>
+            <ul>
+                <li>When choosing a metric/chart, does this help the admin make better decisions around Wayground adoption? If not, don't show it.</li>
+                <li>Does showing this help the CSM make better decisions for their school or district? If not, don't show it.</li>
+                <li>BLUF - Bottom Line Up Front where possible. Show summaries or key info to unblock users.</li>
+                <li>There are a lot of charts and data points to show. Admins are busy people - ensure we don't overwhelm with too much cognitive load.</li>
+            </ul>
+
+            <h3 id="ia">Information architecture</h3>
+            <p>We asked admins to walk us through how they read and interpreted dashboards in other tools. We saw a trend of a natural cognitive progression that matches how administrators would likely process and analyze the data.</p>
+            <p>We had to support both quick glances and deep dives as necessary. We created a taxonomy of data points and mapped it to frequency and time spent:</p>
+
+            <h4>Level 1 - key metrics — viewed frequently for a few mins at a time</h4>
+            <p>How many teachers are hosting an activity? How many activities hosted?</p>
+
+            <h4>Level 2 - trend metrics — viewed frequently for a few mins at a time</h4>
+            <p>How many teachers hosted month on month? What resource types were used?</p>
+
+            <h4>Level 3 - distribution analysis — viewed infrequently for several mins at a time</h4>
+            <p>What kind of resource types and accommodations are used? What is the usage of AI features?</p>
+
+            <h4>Level 4 - comparative analysis — viewed rarely for hours at a time</h4>
+            <p>How are different schools doing? What are top performing teachers and schools?</p>
+
+            <h3 id="prototype">Code prototyping to unblock engineering</h3>
+            <p><strong>Problem:</strong> Data team wasn't aligned on the data model. We made low fidelity sketches, but they still had a lot of questions on where each data point is coming from, what is the interactivity, time period etc. How are filtering and selection going to work? How do we deal with edge cases?</p>
+            <p><strong>Solution:</strong> Before going into high fidelity, I went into Cursor and vibe coded a prototype with interactivity, imported some of our design system components and then sat with the data team and gave that as the source of truth so they were unblocked and could start creating the data model and pipelines.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/UA vibe code.png" alt="Interactive Code Prototype">
+            <figcaption class="cs-caption">Screenshot of vibe coded prototype</figcaption>
+        </figure>
+
+        <section id="charting" class="cs-section prose">
+            <h3>Charting components for design system</h3>
+            <p><strong>Problem:</strong> We didn't have charting in our design system and front end didn't want to build it. They wanted to use a third party library (Streamlit) which couldn't be customized to our design language - this would be a bad user experience.</p>
+            <p><strong>Solution:</strong> I went through the codebase and found other examples where charting was used inside our product. I spoke to other devs and designers to understand implementation constraints. We finally chose Chart.js which was an opensource, flexible library that was perfect for our use case.</p>
+            <p>I sat with front end and engineering manager to discuss and came to an agreement: design system where possible - do not create new colour, typography or spacing primitives for charting.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/UA-design-system.png" alt="Design System Chart Components">
+        </figure>
+
+        <section id="testing" class="cs-section prose">
+            <h3>User testing</h3>
+            <p><strong>Challenge:</strong> Admin user persona was busy and unavailable to talk. We got face time with admins of some critical districts by co-ordinating with the CS Team.</p>
+            <p>We created a simple usability testing plan and questionnaire for each call. I also pulled the data for each district and created a custom mockup to make the test more realistic. We got some good feedback on usage behaviours and nuances that helped us change the final design.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/UA-usertest.png" alt="User Testing Sessions">
+        </figure>
+
+        <section id="iteration" class="cs-section prose">
+            <h3>Iteration and design details</h3>
+            <p>The IA stayed constant across iterations — most important metrics on top — but the visual treatment kept getting quieter. I moved away from contrasting backgrounds and heavy card chrome toward stripping out visual clutter and overhead, and the card structure became more modular and bento-box-like, supporting multiple layouts.</p>
+            <p>The question I kept circling on the cards was whether to separate the key metrics from the chart or keep them together. Which reads better? It mattered because some metrics were confusing in their own right — the way they were presented, or even how they were defined, could mislead admins if I got the framing wrong.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/UA-Iterations.png" alt="UI iterations over time">
+            <figcaption class="cs-caption">UI iterations over time, moving toward a quieter, more modular layout.</figcaption>
+        </figure>
+
+        <figure class="cs-image">
+            <img src="images/UA-Card-deepdive.png" alt="Card design deep dive">
+            <figcaption class="cs-caption">Deep dive on the card: key metrics together with, or separated from, the chart.</figcaption>
+        </figure>
+
+        <section class="cs-section prose">
+            <h3>Designing the page header around a data constraint</h3>
+            <p>The page header design evolved based on technical constraints. I initially envisioned real-time filter updates, where changing a filter would immediately refresh the data. But our data infrastructure (using Cassandra) made that hard at scale - a single district could have dozens of schools, thousands of teachers, and over 100,000 students. Querying and aggregating that volume of data in real-time was computationally intensive. So we pivoted to an "Apply Filters" pattern where admins explicitly trigger the data update, which improved performance significantly.</p>
+            <p>I also added a prominent "Contact Us" CTA that emails the CS team with context about what the admin is currently viewing. Admins often need to take action based on what they see in the data, and this kept our CS team engaged with their accounts rather than being cut out by the self-service dashboard.</p>
+        </section>
+
+        <figure class="cs-image">
+            <img src="images/UA-cassandra.png" alt="Page header and filtering design">
+            <figcaption class="cs-caption">The page header with the "Apply Filters" pattern and "Contact Us" CTA.</figcaption>
+        </figure>
+
+        <section id="final" class="cs-section prose">
+            <h3>Final design</h3>
+            <p>Simplified the UI and reduced number of colours and data points shown to maximise readability. Added Detail tab to support deep dive user behaviour.</p>
+        </section>
+
+        <figure class="cs-image">
+            <iframe height="600" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FJFSLmyvLqejvD41bSCqn7I%2FS-D-Usage-Analytics%3Fpage-id%3D836%253A6540%26p%3Df%26viewport%3D-985%252C448%252C0.22%26t%3DXxs4OncjHrEduvQZ-1%26scaling%3Dscale-down%26content-scaling%3Dfixed%26node-id%3D836-12604%26starting-point-node-id%3D836%253A12604" allowfullscreen></iframe>
+        </figure>
+
+        <section id="reflection" class="cs-section prose">
+            <h3>Impact &amp; reflection</h3>
+            <p>The dashboard now features in every enterprise customer conversation and gets cited in revenue retention. CS reception was strong, and the customers it was shown to responded well.</p>
+            <p>Other designers in team started using Cursor after I demoed my workflow to the team.</p>
+
+            <h3>What could have been better</h3>
+
+            <h4>More direct admin access earlier</h4>
+            <p>We coordinated through CS to get face time with admins, which limited our testing frequency. If I had pushed harder to establish direct relationships with a few friendly admin contacts early on, we could have run more rapid iteration cycles. The dependency on CS gatekeeping slowed down our validation process.</p>
+
+            <h4>Technical constraints discovered too late</h4>
+            <p>The Cassandra performance limitations that forced us to pivot from real-time to "Apply Filters" came up during implementation. If I had done a technical feasibility spike with engineering earlier - even just a 30-minute whiteboarding session - we could have designed with those constraints from the start rather than backtracking on interaction patterns.</p>
+
+            <h4>Metrics definition workshop needed</h4>
+            <p>I noticed confusion around how certain metrics were defined (mentioned in the card design deep dive). In hindsight, we should have run a cross-functional workshop specifically on metric definitions and data quality before designing. We were designing the interface while the data team was still figuring out what some numbers actually meant - classic cart before the horse.</p>
+
+            <h3>Key learnings</h3>
+
+            <h4>Code prototypes create shared understanding</h4>
+            <p>The "vibe coded" prototype was more effective than static mockups at aligning the data team. When you're designing data-heavy experiences, interactive prototypes that show state changes and edge cases are worth the extra effort. It became the source of truth and unblocked multiple teams.</p>
+
+            <h4>Design system constraints as guardrails</h4>
+            <p>The agreement with engineering to "use design system primitives, don't create new ones" for charting actually made the design process faster. Constraints forced creative solutions within existing patterns rather than bikeshedding new color palettes. Sometimes limitations are gifts.</p>
+
+            <h4>Information architecture hierarchy works</h4>
+            <p>The four-level structure (key metrics → trends → distribution → comparison) mapped to actual usage patterns and cognitive load. When IA is grounded in real user mental models rather than feature lists, it tends to hold up better through iteration.</p>
+
+            <h4>Fighting for CS needs alongside user needs</h4>
+            <p>The "Contact Us" CTA that emails CS with context wasn't just about users - it kept CS engaged and in the loop. In B2B products, your internal teams are stakeholders too. The dashboard succeeded partly because it made CS's lives better, not just admins'.</p>
+        </section>
+
+        </article>
+<nav class="cs-nav">
+            <a href="work.html">← Back to work</a>
+            <a href="gojek-ads-design-system.html">Next project →</a>
+        </nav>
+
+        </main>
+
+        <footer class="footer">
+            &copy; 2026 Chandra Ramanujan
+        </footer>
+    </div>
+    <script src="lightbox.js" defer></script>
+</body>
+</html>

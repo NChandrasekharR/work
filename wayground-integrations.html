@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- STUB: structure per build spec, narrative pending from Chandra. Not linked from work.html yet. -->
+    <title>Enterprise integrations: a zero-churn migration — Chandra Ramanujan</title>
+    <meta name="description" content="Migrating Wayground's legacy LMS integrations to modern standards: admin setup flows, error states, and change management for a big-bang cutover with zero churn. Integration stability rose from 86% to 99%, with $1.3M in paid accounts running the MS Teams integration.">
+    <!-- Social / Open Graph. Base URL = the single BASE constant; change it in one place to re-point. -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Chandra Ramanujan">
+    <meta property="og:title" content="Enterprise integrations: a zero-churn migration — Chandra Ramanujan">
+    <meta property="og:description" content="Migrating Wayground's legacy LMS integrations to modern standards: admin setup flows, error states, and change management for a big-bang cutover with zero churn. Integration stability rose from 86% to 99%, with $1.3M in paid accounts running the MS Teams integration.">
+    <meta property="og:url" content="https://chandraramanujan.com/wayground-integrations.html">
+    <!-- TODO(chandra: create OG image at images/og/wayground-integrations.png) -->
+    <meta property="og:image" content="https://chandraramanujan.com/images/og/wayground-integrations.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Enterprise integrations: a zero-churn migration — Chandra Ramanujan">
+    <meta name="twitter:description" content="Migrating Wayground's legacy LMS integrations to modern standards: admin setup flows, error states, and change management for a big-bang cutover with zero churn. Integration stability rose from 86% to 99%, with $1.3M in paid accounts running the MS Teams integration.">
+    <meta name="twitter:image" content="https://chandraramanujan.com/images/og/wayground-integrations.png">
+    <link rel="canonical" href="https://chandraramanujan.com/wayground-integrations.html">
+    <link rel="icon" type="image/png" href="images/profile.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Chandra Ramanujan — Essays" href="/rss.xml">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "headline": "Enterprise integrations: a zero-churn migration",
+        "name": "Enterprise integrations: a zero-churn migration",
+        "description": "Migrating Wayground's legacy LMS integrations to modern standards: admin setup flows, error states, and change management for a big-bang cutover with zero churn. Integration stability rose from 86% to 99%, with $1.3M in paid accounts running the MS Teams integration.",
+        "url": "https://chandraramanujan.com/wayground-integrations.html",
+        "image": "https://chandraramanujan.com/images/og/wayground-integrations.png",
+        "datePublished": "2025",
+        "inLanguage": "en",
+        "author": {
+            "@type": "Person",
+            "@id": "https://chandraramanujan.com/about.html#person",
+            "name": "Chandra Ramanujan",
+            "url": "https://chandraramanujan.com/about.html"
+        },
+        "publisher": {
+            "@type": "Person",
+            "@id": "https://chandraramanujan.com/about.html#person",
+            "name": "Chandra Ramanujan"
+        },
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Chandra Ramanujan",
+            "url": "https://chandraramanujan.com/"
+        },
+        "about": "Product design case study"
+    }
+    </script>
+</head>
+<body>
+    <div class="container page">
+        <nav class="nav">
+            <a href="index.html" class="nav__brand">Chandra Ramanujan</a>
+            <div class="nav__links">
+                <a href="work.html" class="is-active">Work</a>
+                <a href="side-projects.html">Side Projects</a>
+                <a href="writing.html">Writing</a>
+                <a href="in-the-news.html">News</a>
+                <a href="about.html">About</a>
+                <a href="https://drive.google.com/file/d/1lJdautAZvmx8DzGwb9-IBwlpT_G-Kq8b/view" target="_blank" rel="noopener">Resume</a>
+            </div>
+        </nav>
+        <main>
+        <article>
+
+        <header class="cs-header">
+            <h1>Enterprise integrations: a zero-churn migration</h1>
+            <p class="cs-header__subtitle">Moving every customer off legacy LMS connectors at once, with the setup flows and change management that made it safe</p>
+            <!-- TODO(chandra: lock Wayground title, apply here and on the other three Wayground pages) -->
+            <p class="cs-header__meta">TODO(chandra: title) · Nov 2024 – Apr 2025 · PM, Engineering, Partnerships, Sales</p>
+        </header>
+
+        <nav class="cs-toc" aria-label="Contents">
+            <a href="#overview">Overview</a>
+            <a href="#problem">The problem</a>
+            <a href="#surface">My design surface</a>
+            <a href="#migration">The migration experience</a>
+            <a href="#security">The security fix</a>
+            <a href="#impact">Impact</a>
+            <a href="#learnings">Learnings</a>
+        </nav>
+
+        <!-- TODO(chandra: hero image) -->
+
+        <section id="overview" class="cs-section prose">
+            <h2>Overview</h2>
+            <!-- Overview follows the Game Settings pattern: what the surface was, what broke (with numbers), what I did, what happened. -->
+            <p>Wayground's LMS and platform integrations are the plumbing every enterprise deal runs through. Districts adopt the product through Canvas, Schoology, and MS Teams, and admins judge the product by how those connectors behave. The legacy integrations held a stability of 86%, built on aging protocols, and enterprise customers were asking for standards-based connectors we couldn't offer.</p>
+            <p>I owned the migration experience: admin setup flows, error and fallback states, and the change management that moved 100% of customers to the new connectors in a single cutover. The stability number is a team outcome I contributed to. The zero-churn cutover is the design and communications outcome I can claim.</p>
+            <p>By April 2025, integration stability stood at 99%, every customer had cut over with zero churn, $1.3M in paid accounts ran the MS Teams integration, and the integrations work opened the UK, Australia, and Canada for sales.</p>
+            <!-- TODO(chandra: narrative — confirm connector names (Canvas/Schoology assumed), the 3 integrations built, and the protocol names you want public (LTI 1.3?)) -->
+        </section>
+
+        <section id="problem" class="cs-section prose">
+            <h2>The problem</h2>
+            <p>TODO(chandra: narrative. Suggested beats: what "legacy instability" looked like in tickets and renewals; which enterprise customers demanded standards-based connectors; why the fix had to be a migration rather than patches.)</p>
+        </section>
+
+        <section id="surface" class="cs-section prose">
+            <h2>My design surface</h2>
+            <p>TODO(chandra: narrative. Claim precisely: admin setup flows, error and fallback states, change management. Name engineering's ownership of protocol work.)</p>
+        </section>
+
+        <section id="migration" class="cs-section prose">
+            <h2>The migration experience</h2>
+            <p>TODO(chandra: narrative. The big-bang cutover decision, the comms plan, the fallback design, what admins saw on day one. This section carries the zero-churn claim.)</p>
+        </section>
+
+        <section id="security" class="cs-section prose">
+            <h2>The security fix</h2>
+            <p>TODO(chandra: narrative. The login vulnerability found during this work, the verification-flow redesign, and how it shipped with zero impact on user retention. Keep detail at a level you can share publicly.)</p>
+        </section>
+
+        <section id="impact" class="cs-section prose">
+            <h2>Impact &amp; results</h2>
+
+            <ul class="metrics">
+                <li><span class="metrics__num">86% → 99%</span> — Integration stability after migrating legacy connectors to modern standards</li>
+                <li><span class="metrics__num">100%</span> — of customers cut over at once, with zero churn</li>
+                <li><span class="metrics__num">$1.3M</span> — in paid accounts running the MS Teams integration</li>
+                <li><span class="metrics__num">3</span> — New markets opened for sales: UK, Australia, Canada</li>
+            </ul>
+
+            <p>TODO(chandra: one paragraph connecting the metrics to the design work, on the Game Settings pattern. Include the security fix as a prose line.)</p>
+        </section>
+
+        <section id="learnings" class="cs-section prose">
+            <h2>What I'd take from this</h2>
+            <p>TODO(chandra: narrative.)</p>
+        </section>
+
+        </article>
+<nav class="cs-nav">
+            <a href="work.html">← Back to work</a>
+            <a href="wayground-game-settings.html">Next project →</a>
+        </nav>
+
+        </main>
+
+        <footer class="footer">
+            &copy; 2026 Chandra Ramanujan
+        </footer>
+    </div>
+    <script src="lightbox.js" defer></script>
+</body>
+</html>

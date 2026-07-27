@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chandra Ramanujan — Essays</title>
+    <link>https://chandraramanujan.com/writing.html</link>
+    <atom:link href="https://chandraramanujan.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <description>Essays on design, product, and technology by Chandra Ramanujan.</description>
+    <language>en</language>
+    <lastBuildDate>Sun, 26 Jul 2026 12:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Why we banned &quot;fortnite&quot; but not &quot;fortnight&quot;</title>
+      <link>https://chandraramanujan.com/fortnite-vs-fortnight.html</link>
+      <guid isPermaLink="true">https://chandraramanujan.com/fortnite-vs-fortnight.html</guid>
+      <description>Why a district content-moderation tool matches keywords by exact string instead of meaning, and why the smarter-looking option was the wrong one.</description>
+      <pubDate>Sun, 26 Jul 2026 12:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The ratings we didn't show</title>
+      <link>https://chandraramanujan.com/the-ratings-we-didnt-show.html</link>
+      <guid isPermaLink="true">https://chandraramanujan.com/the-ratings-we-didnt-show.html</guid>
+      <description>An experiment found that restaurant ratings only lifted click-through when the rating was good. Why the click-optimal move — hiding bad ratings — was the wrong one.</description>
+      <pubDate>Sun, 26 Jul 2026 12:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Why the moderation toggle is deliberately annoying</title>
+      <link>https://chandraramanujan.com/the-deliberately-annoying-toggle.html</link>
+      <guid isPermaLink="true">https://chandraramanujan.com/the-deliberately-annoying-toggle.html</guid>
+      <description>Removing friction is the usual job. Here's why I put friction back into a district-wide content-blocking toggle and defended it in review.</description>
+      <pubDate>Sun, 26 Jul 2026 12:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Copy-paste beats CSV</title>
+      <link>https://chandraramanujan.com/copy-paste-beats-csv.html</link>
+      <guid isPermaLink="true">https://chandraramanujan.com/copy-paste-beats-csv.html</guid>
+      <description>CSV upload was the obvious input method for a keyword block list. Why we cut it and made admins paste or type by hand instead.</description>
+      <pubDate>Sun, 26 Jul 2026 12:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Very smooth, very powerful</title>
+      <link>https://chandraramanujan.com/very-smooth-very-powerful.html</link>
+      <guid isPermaLink="true">https://chandraramanujan.com/very-smooth-very-powerful.html</guid>
+      <description>An ad-agency internship, a test drive I couldn't legally conduct, and how I figured out I was in the wrong room.</description>
+      <pubDate>Sun, 26 Jul 2026 12:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
