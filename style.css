@@ -471,6 +471,13 @@ a.card:hover .card__title {
   border: 1px solid #f0f0f0;
 }
 
+/* Iframes have no intrinsic height — `height: auto` collapses them to the
+   150px default and silently overrides the height="" attribute. Give embeds
+   a real aspect ratio instead. */
+.cs-image iframe {
+  aspect-ratio: 16 / 10;
+}
+
 .cs-caption {
   font-size: 13px;
   color: #999;
