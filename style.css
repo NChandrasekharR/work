@@ -17,7 +17,7 @@ html {
 
 body {
   font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6;
   color: #3d3d3d;
   background: #fff;
@@ -52,12 +52,12 @@ img {
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: 12px 24px;
+  gap: 12px 16px;
   padding: 48px 0;
 }
 
 .nav__brand {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   color: #111;
   text-decoration: none;
@@ -66,12 +66,12 @@ img {
 .nav__links {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 16px;
 }
 
 .nav__links a {
-  font-size: 15px;
-  color: #999;
+  font-size: 16px;
+  color: #767676;
   text-decoration: none;
   transition: color 150ms ease;
 }
@@ -79,6 +79,24 @@ img {
 .nav__links a:hover,
 .nav__links a.is-active {
   color: #111;
+}
+
+/* Phones: less air above the nav, and links in a fixed 3 × 2 grid so a
+   natural wrap never strands "Resume" alone on its own row. */
+@media (max-width: 560px) {
+  .page {
+    padding-top: 0;
+  }
+
+  .nav {
+    padding: 32px 0 40px;
+  }
+
+  .nav__links {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    gap: 8px 24px;
+  }
 }
 
 /* Intro / hero */
@@ -109,7 +127,7 @@ img {
 }
 
 h1 {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 600;
   letter-spacing: -0.01em;
   color: #111;
@@ -117,14 +135,14 @@ h1 {
 }
 
 .intro__meta {
-  font-size: 16px;
-  color: #999;
+  font-size: 17px;
+  color: #767676;
   margin-top: 8px;
 }
 
 .intro__text {
-  font-size: 16px;
-  color: #666;
+  font-size: 17px;
+  color: #595959;
   margin-top: 16px;
   max-width: 60ch;
 }
@@ -135,7 +153,7 @@ h1 {
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 600;
   color: #111;
   margin-bottom: 20px;
@@ -161,7 +179,7 @@ h2 {
 }
 
 .row__title {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
   color: #111;
 }
@@ -173,29 +191,29 @@ a.row:hover .row__title {
 }
 
 .row__meta {
-  font-size: 15px;
-  color: #999;
+  font-size: 16px;
+  color: #767676;
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
 
 .row__type {
-  font-size: 14px;
-  color: #999;
+  font-size: 15px;
+  color: #767676;
 }
 
 .row__desc {
   display: block;
-  font-size: 15px;
-  color: #666;
+  font-size: 16px;
+  color: #595959;
   margin-top: 4px;
   max-width: 60ch;
 }
 
 .row__source {
   display: block;
-  font-size: 14px;
-  color: #999;
+  font-size: 15px;
+  color: #767676;
   margin-top: 2px;
 }
 
@@ -257,7 +275,7 @@ a.row:hover .row__title {
 }
 
 .card__title {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
   color: #111;
 }
@@ -269,16 +287,16 @@ a.card:hover .card__title {
 }
 
 .card__meta {
-  font-size: 15px;
-  color: #999;
+  font-size: 16px;
+  color: #767676;
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
 
 .card__desc {
   display: block;
-  font-size: 15px;
-  color: #666;
+  font-size: 16px;
+  color: #595959;
   margin-top: 4px;
 }
 
@@ -291,12 +309,12 @@ a.card:hover .card__title {
 
 /* Coming-soon variant */
 .row--soon .row__title {
-  color: #999;
+  color: #767676;
 }
 
 .row--soon .row__suffix {
-  font-size: 14px;
-  color: #999;
+  font-size: 15px;
+  color: #767676;
   margin-left: 6px;
   white-space: nowrap;
 }
@@ -305,8 +323,8 @@ a.card:hover .card__title {
 .link-quiet {
   display: inline-block;
   margin-top: 20px;
-  font-size: 15px;
-  color: #999;
+  font-size: 16px;
+  color: #767676;
   text-decoration: none;
   transition: color 150ms ease;
 }
@@ -334,8 +352,8 @@ a.card:hover .card__title {
 
 /* Connect */
 .connect__text {
-  font-size: 16px;
-  color: #666;
+  font-size: 17px;
+  color: #595959;
   max-width: 60ch;
 }
 
@@ -347,8 +365,8 @@ a.card:hover .card__title {
 }
 
 .connect__links a {
-  font-size: 15px;
-  color: #999;
+  font-size: 16px;
+  color: #767676;
   text-decoration: none;
   transition: color 150ms ease;
 }
@@ -359,7 +377,7 @@ a.card:hover .card__title {
 
 /* Prose block (case studies) */
 .prose p {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.75;
   color: #3d3d3d;
   margin-bottom: 1.25em;
@@ -371,7 +389,7 @@ a.card:hover .card__title {
 }
 
 .prose li {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.75;
   color: #3d3d3d;
   margin-bottom: 0.4em;
@@ -380,26 +398,26 @@ a.card:hover .card__title {
 .prose blockquote {
   border-left: 1px solid #e0e0e0;
   padding-left: 1.25rem;
-  color: #666;
+  color: #595959;
   margin: 0 0 1.25em;
 }
 
 .prose h2 {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 600;
   color: #111;
   margin: 0 0 0.75em;
 }
 
 .prose h3 {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 600;
   color: #111;
   margin: 2em 0 0.5em;
 }
 
 .prose h4 {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 600;
   color: #111;
   margin: 1.5em 0 0.5em;
@@ -416,14 +434,14 @@ a.card:hover .card__title {
 }
 
 .cs-header__subtitle {
-  font-size: 16px;
-  color: #666;
+  font-size: 17px;
+  color: #595959;
   margin-top: 8px;
 }
 
 .cs-header__meta {
-  font-size: 14px;
-  color: #999;
+  font-size: 15px;
+  color: #767676;
   margin-top: 12px;
 }
 
@@ -436,8 +454,8 @@ a.card:hover .card__title {
 }
 
 .cs-toc a {
-  font-size: 15px;
-  color: #999;
+  font-size: 16px;
+  color: #767676;
   text-decoration: none;
   transition: color 150ms ease;
 }
@@ -479,8 +497,8 @@ a.card:hover .card__title {
 }
 
 .cs-caption {
-  font-size: 14px;
-  color: #999;
+  font-size: 15px;
+  color: #767676;
   text-align: left;
   margin-top: 8px;
 }
@@ -493,8 +511,8 @@ a.card:hover .card__title {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  color: #bbb;
+  font-size: 15px;
+  color: #595959;
 }
 
 /* Metrics */
@@ -508,12 +526,12 @@ ul.metrics {
 }
 
 .metrics li {
-  font-size: 16px;
-  color: #666;
+  font-size: 17px;
+  color: #595959;
 }
 
 .metrics__num {
-  font-size: 40px;
+  font-size: 42px;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: #111;
@@ -563,11 +581,11 @@ body.lightbox-open {
   justify-content: space-between;
   gap: 16px;
   margin-top: 48px;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .cs-nav a {
-  color: #999;
+  color: #767676;
   text-decoration: none;
   transition: color 150ms ease;
 }
@@ -581,6 +599,6 @@ body.lightbox-open {
   border-top: 1px solid #f0f0f0;
   padding-top: 24px;
   margin-top: 96px;
-  font-size: 14px;
-  color: #999;
+  font-size: 15px;
+  color: #767676;
 }
