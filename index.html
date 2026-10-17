@@ -29,11 +29,8 @@
             <a href="index.html" class="nav__brand">Chandra Ramanujan</a>
             <div class="nav__links">
                 <a href="work.html">Work</a>
-                <a href="side-projects.html">Side Projects</a>
                 <a href="writing.html">Writing</a>
-                <a href="in-the-news.html">News</a>
                 <a href="about.html">About</a>
-                <a href="https://drive.google.com/file/d/1lJdautAZvmx8DzGwb9-IBwlpT_G-Kq8b/view" target="_blank" rel="noopener">Resume</a>
             </div>
         </nav>
         <main>
@@ -43,58 +40,45 @@
                 <img src="images/profile.png" alt="Chandra Ramanujan">
                 <img class="avatar__smile" src="images/profile-smile.png" alt="" aria-hidden="true">
             </div>
-            <h1>Chandra Ramanujan</h1>
+            <h1 class="claim">Design decisions should be<br>proven, not debated.</h1>
+            <p class="intro__text">So I prototype in code, run experiments, and let the data settle the argument.</p>
             <p class="intro__meta">Lead designer at Sitetracker. Previously at Wayground and Gojek.</p>
-            <p class="intro__text">I think design decisions should be proven, not debated. So I prototype in code, run experiments, and let the data settle the argument. Lately that means using AI to get working prototypes in front of engineers and users before the debate even starts.</p>
         </section>
 
-        <section class="section">
-            <h2>Work</h2>
-            <div class="rows">
-                <a class="row" href="wayground-content-moderation.html">
-                    <span class="row__head">
-                        <span class="row__title">Content moderation under political pressure</span>
-                        <span class="row__meta">2025</span>
-                    </span>
-                    <span class="row__desc">Sales wanted a kill switch for the content library. We built a granular moderation tool instead</span>
-                </a>
-                <a class="row" href="wayground-game-settings.html">
-                    <span class="row__head">
-                        <span class="row__title">Do we ever need modes?</span>
-                        <span class="row__meta">2025</span>
-                    </span>
-                    <span class="row__desc">Rebuilding the IA of Wayground's most-trafficked surface — twice. Shipped, watched it regress, and shipped again</span>
-                </a>
-                <a class="row" href="gojek-masthead-ads.html">
-                    <span class="row__head">
-                        <span class="row__title">Masthead ads: fighting for a seat at the table</span>
-                        <span class="row__meta">2022–2024</span>
-                    </span>
-                    <span class="row__desc">Writing our way into GoFood's redesign and building the platform's most successful premium ad format</span>
-                </a>
-                <a class="row" href="gojek-banner-ctr.html">
-                    <span class="row__head">
-                        <span class="row__title">Banner CTR experiment: 60% uplift</span>
-                        <span class="row__meta">2024</span>
-                    </span>
-                    <span class="row__desc">A multivariate experiment and automation workflow that lifted self-serve banner CTR by 60% for GoFood merchants</span>
-                </a>
-                <a class="row" href="wayground-usage-analytics.html">
-                    <span class="row__head">
-                        <span class="row__title">Usage analytics dashboard</span>
-                        <span class="row__meta">2025</span>
-                    </span>
-                    <span class="row__desc">Scaling customer success from manual email reports to self-serve admin dashboards</span>
-                </a>
-                <a class="row" href="gojek-ads-design-system.html">
-                    <span class="row__head">
-                        <span class="row__title">Building Gojek's ads design system</span>
-                        <span class="row__meta">2021–2024</span>
-                    </span>
-                    <span class="row__desc">A unified component library and visual principles for all third-party advertising across Gojek's ecosystem</span>
-                </a>
-            </div>
-            <a class="link-quiet" href="work.html">View all work</a>
+        <section class="proofs" aria-label="Selected work">
+            <a class="proof" href="gojek-banner-ctr.html">
+                <span class="proof__media proof__media--banners">
+                    <img src="images/Sales Assisted vs Self Serve.png" alt="Sales-assisted GoFood banners beside the self-serve originals">
+                </span>
+                <span class="proof__num">60%</span>
+                <span class="proof__desc">Self-serve banner CTR on GoFood. A multivariate experiment, then scaled to all merchants.</span>
+            </a>
+            <a class="proof" href="gojek-masthead-ads.html">
+                <span class="proof__media">
+                    <img src="images/masthead-new-hero.png" alt="Gojek home screen with a KFC masthead ad">
+                </span>
+                <span class="proof__num">2× → 4.5×</span>
+                <span class="proof__desc">Merchant ROAS on masthead. We wrote our way into GoFood's redesign and built the premium format.</span>
+            </a>
+            <a class="proof" href="wayground-game-settings.html">
+                <span class="proof__media">
+                    <img src="images/wayground-gs/06-iteration-2-mode-picker.png" alt="Wayground mode picker with five ways to run a quiz">
+                </span>
+                <span class="proof__num proof__num--line">Shipped, watched it regress,<br>shipped again.</span>
+                <span class="proof__desc">Do we ever need modes? Wayground's most-trafficked surface, rebuilt twice.</span>
+            </a>
+        </section>
+        <a class="link-quiet" href="work.html">All work</a>
+
+        <section class="section home-writing">
+            <h2>Writing</h2>
+            <a class="row" href="the-ratings-we-didnt-show.html">
+                <span class="row__head">
+                    <span class="row__title">The ratings we didn't show</span>
+                </span>
+                <span class="row__desc">An experiment said hide bad restaurant ratings to lift clicks. The click-optimal move was the wrong one.</span>
+            </a>
+            <a class="link-quiet" href="writing.html">All writing</a>
         </section>
 
         <section class="section">
