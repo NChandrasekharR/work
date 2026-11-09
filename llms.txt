@@ -33,5 +33,5 @@
 
 - [All writing](https://chandraramanujan.com/writing.html): Essays, plus articles, talks, workshops, podcasts, and policy work.
 - [In the news](https://chandraramanujan.com/in-the-news.html): Press mentions.
-- [Side projects](https://chandraramanujan.com/side-projects.html): Things I build for fun — a Figma plugin, a browser-based dithering tool, an AI writing studio.
+- [Side projects](https://chandraramanujan.com/side-projects.html): Things I build for fun — a medieval realm simulator, a Chrome extension that keeps closed tabs, a kolam falling-block game, Figma plugins, an AI writing studio.
 - [Essays RSS feed](https://chandraramanujan.com/rss.xml): Subscribe to new essays.
